@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'homepage');
+Route::view('/', 'homepage')->name('beranda');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

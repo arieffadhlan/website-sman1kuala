@@ -648,6 +648,10 @@ select {
 .relative {
   position: relative;
 }
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
 .left-0 {
   left: 0px;
 }
@@ -662,6 +666,9 @@ select {
 }
 .z-50 {
   z-index: 50;
+}
+.z-10 {
+  z-index: 10;
 }
 .mx-auto {
   margin-left: auto;
@@ -947,6 +954,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(238 242 255 / var(--tw-bg-opacity));
 }
+.bg-secondary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(81 179 109 / var(--tw-bg-opacity));
+}
 .fill-current {
   fill: currentColor;
 }
@@ -1007,6 +1018,14 @@ select {
 .px-20 {
   padding-left: 5rem;
   padding-right: 5rem;
+}
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+.px-\[4\] {
+  padding-left: 4;
+  padding-right: 4;
 }
 .pt-1 {
   padding-top: 0.25rem;
@@ -1094,6 +1113,9 @@ select {
 }
 .tracking-wider {
   letter-spacing: 0.05em;
+}
+.tracking-\[-1\.1\%\] {
+  letter-spacing: -1.1%;
 }
 .text-gray-500 {
   --tw-text-opacity: 1;
@@ -1221,6 +1243,9 @@ select {
 .duration-75 {
   transition-duration: 75ms;
 }
+.duration-300 {
+  transition-duration: 300ms;
+}
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1245,6 +1270,18 @@ select {
 .hover\:bg-gray-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+}
+.hover\:bg-\[\#62bb7c\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(98 187 124 / var(--tw-bg-opacity));
+}
+.hover\:bg-\[\#418f57\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(65 143 87 / var(--tw-bg-opacity));
+}
+.hover\:bg-\[\#49a162\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(73 161 98 / var(--tw-bg-opacity));
 }
 .hover\:font-semibold:hover {
   font-weight: 600;
@@ -1355,6 +1392,18 @@ select {
 .active\:bg-gray-900:active {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
+.active\:bg-\[\#49a162\]:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(73 161 98 / var(--tw-bg-opacity));
+}
+.active\:bg-\[\#316b41\]:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(49 107 65 / var(--tw-bg-opacity));
+}
+.active\:bg-\[\#397d4c\]:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(57 125 76 / var(--tw-bg-opacity));
 }
 .active\:text-gray-700:active {
   --tw-text-opacity: 1;

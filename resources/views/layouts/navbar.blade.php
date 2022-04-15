@@ -1,4 +1,4 @@
-<nav class="px-2 sm:px-20 py-5 shadow-md bg-white">
+<nav class="sticky top-0 px-2 sm:px-20 py-5 z-10 shadow-md bg-white">
     <div class="container flex flex-wrap justify-between items-center mx-auto">
         <a href="{{ route('beranda') }}" class="flex items-center">
             {{-- <img src="/docs/images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Logo SMAN 1 Kuala"> --}}
@@ -33,7 +33,9 @@
                     @endif
                 @endforeach
                 <li>
-                    <x-button>Masuk</x-button>
+                    <a href="{{ route('login') }}" class="inline-flex items-center px-5 py-2 bg-secondary border border-transparent rounded-lg font-semibold text-base leading-[22px] tracking-[-1.1%] text-white hover:bg-[#49a162] active:bg-[#397d4c] disabled:opacity-25 transition duration-300 ease-in-out">
+                        Masuk
+                    </a>
                 </li>
             </ul>
         </div>

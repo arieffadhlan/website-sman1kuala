@@ -979,6 +979,9 @@ select {
 .gap-7 {
   gap: 1.75rem;
 }
+.gap-5 {
+  gap: 1.25rem;
+}
 .gap-x-5 {
   -moz-column-gap: 1.25rem;
        column-gap: 1.25rem;
@@ -1145,6 +1148,10 @@ select {
 .bg-\[\#DCF0E2\] {
   --tw-bg-opacity: 1;
   background-color: rgb(220 240 226 / var(--tw-bg-opacity));
+}
+.bg-primary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 47 63 / var(--tw-bg-opacity));
 }
 .fill-current {
   fill: currentColor;
@@ -1414,6 +1421,10 @@ select {
 .text-red-600 {
   --tw-text-opacity: 1;
   color: rgb(220 38 38 / var(--tw-text-opacity));
+}
+.text-secondary {
+  --tw-text-opacity: 1;
+  color: rgb(81 179 109 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;

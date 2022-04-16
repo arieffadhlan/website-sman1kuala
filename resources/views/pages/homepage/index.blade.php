@@ -8,7 +8,7 @@
 
     <img src="{{ asset('images/hero-homepage.png') }}" class="w-full" alt="SMAN 1 Kuala">
     <x-container>
-        <div class="pt-[60px] pb-10">
+        <div class="pt-[48px] pb-10 sm:pt-[60px]">
             <h1 class="relative mb-11 text-center text-3xl tracking-[-0.021em] font-bold text-primary after:content-[' '] after:absolute after:w-[120px] after:h-1 after:left-1/2 after:bottom-[-12px] after:bg-secondary after:-translate-x-1/2">Berita Terbaru</h1>
             <div class="no-scrollbar container flex flex-nowrap justify-start items-center gap-7 mx-auto px-0.5 py-5 overflow-auto snap-x lg:flex-wrap xl:flex-nowrap lg:justify-center lg:px-0 lg:snap-none">
                 <x-homepage.news-card></x-homepage.news-card>
@@ -17,14 +17,14 @@
             </div>
         </div>
     </x-container>
-    <div class="flex flex-col items-center justify-center my-[60px] py-[60px] bg-[#DCF0E2]">
+    <div class="flex flex-col items-center justify-center my-[48px] py-[60px] bg-[#DCF0E2]">
         <h1 class="relative mb-11 text-center text-3xl tracking-[-0.021em] font-bold text-primary after:content-[' '] after:absolute after:w-[120px] after:h-1 after:left-1/2 after:bottom-[-12px] after:bg-secondary after:-translate-x-1/2">Ekstrakurikuler</h1>
         <div class="grid grid-cols-1 gap-5 place-items-center xs:grid-rows-4 xs:grid-cols-2 sm:grid-rows-4 sm:grid-cols-2 md:grid-rows-3 md:grid-cols-3 lg:grid-rows-2 lg:grid-cols-4">
             <x-homepage.extracurricular-card></x-homepage.extracurricular-card>
         </div>
     </div>
     <x-container>
-        <div class="flex flex-col items-center justify-center py-[60px]">
+        <div class="flex flex-col items-center justify-center py-[48px] sm:py-[60px]">
             <h1 class="relative mb-11 text-center text-3xl tracking-[-0.021em] font-bold text-primary after:content-[' '] after:absolute after:w-[120px] after:h-1 after:left-1/2 after:bottom-[-12px] after:bg-secondary after:-translate-x-1/2">Denah Lokasi</h1>
             <div class="container w-full h-[25rem]" id="map"></div>
         </div>

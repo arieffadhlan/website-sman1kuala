@@ -1,3 +1,7 @@
+@push('guest-script')
+    <script src="https://unpkg.com/flowbite@1.4.2/dist/flowbite.js"></script>
+@endpush
+
 <nav class="sticky top-0 px-8 py-5 z-[2000] shadow-md bg-white sm:px-16">
     <div class="container flex flex-wrap items-center justify-between mx-auto">
         <a href="{{ route('beranda') }}" class="flex items-center">
@@ -39,8 +43,3 @@
         </div>
     </div>
 </nav>
-
-
-@push('guest-head-script')
-    <script src="https://unpkg.com/flowbite@1.4.2/dist/flowbite.js"></script>
-@endpush

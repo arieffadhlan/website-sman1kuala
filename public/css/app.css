@@ -891,6 +891,10 @@ input[type=file]::file-selector-button:hover {
   margin-top: 48px;
   margin-bottom: 48px;
 }
+.my-12 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -1032,6 +1036,9 @@ input[type=file]::file-selector-button:hover {
 .w-48 {
   width: 12rem;
 }
+.w-60 {
+  width: 15rem;
+}
 .max-w-7xl {
   max-width: 80rem;
 }
@@ -1156,6 +1163,9 @@ input[type=file]::file-selector-button:hover {
 }
 .gap-16 {
   gap: 4rem;
+}
+.gap-8 {
+  gap: 2rem;
 }
 .gap-y-\[6px\] {
   row-gap: 6px;
@@ -1410,6 +1420,15 @@ input[type=file]::file-selector-button:hover {
 .pt-\[48px\] {
   padding-top: 48px;
 }
+.pt-20 {
+  padding-top: 5rem;
+}
+.pb-12 {
+  padding-bottom: 3rem;
+}
+.pt-12 {
+  padding-top: 3rem;
+}
 .text-center {
   text-align: center;
 }
@@ -1444,6 +1463,10 @@ input[type=file]::file-selector-button:hover {
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
 .font-medium {
   font-weight: 500;
 }
@@ -1468,6 +1491,9 @@ input[type=file]::file-selector-button:hover {
 .leading-7 {
   line-height: 1.75rem;
 }
+.leading-\[80px\] {
+  line-height: 80px;
+}
 .tracking-\[-0\.006em\] {
   letter-spacing: -0.006em;
 }
@@ -1488,6 +1514,9 @@ input[type=file]::file-selector-button:hover {
 }
 .tracking-wider {
   letter-spacing: 0.05em;
+}
+.tracking-\[-0\.022em\] {
+  letter-spacing: -0.022em;
 }
 .text-gray-500 {
   --tw-text-opacity: 1;
@@ -1548,6 +1577,10 @@ input[type=file]::file-selector-button:hover {
 .text-red-600 {
   --tw-text-opacity: 1;
   color: rgb(224 36 36 / var(--tw-text-opacity));
+}
+.text-secondary {
+  --tw-text-opacity: 1;
+  color: rgb(81 179 109 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;
@@ -1982,6 +2015,14 @@ input[type=file]::file-selector-button:hover {
 
   .sm\:pt-\[60px\] {
     padding-top: 60px;
+  }
+
+  .sm\:pt-\[100px\] {
+    padding-top: 100px;
+  }
+
+  .sm\:pb-\[60px\] {
+    padding-bottom: 60px;
   }
 
   .sm\:text-left {

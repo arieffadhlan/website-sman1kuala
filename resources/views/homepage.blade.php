@@ -9,10 +9,13 @@
     <x-navbar></x-navbar>
     <img src="{{ asset('images/hero-homepage.png') }}" class="w-full" alt="SMAN 1 Kuala">
     <x-container>
-        <div class="flex justify-center items-center gap-x-7 py-[60px]">
-            <x-news-card></x-news-card>
-            <x-news-card></x-news-card>
-            <x-news-card></x-news-card>
+        <div class="pt-[60px] pb-10">
+            <h1 class="mb-11 relative text-center font-bold text-3xl tracking-[-0.021em] text-primary after:content-[' '] after:w-[120px] after:h-1 after:left-1/2 after:bottom-[-12px] after:absolute after:bg-secondary after:-translate-x-1/2">Berita Terbaru</h1>
+            <div class="container flex flex-nowrap lg:flex-wrap xl:flex-nowrap justify-start lg:justify-center items-center mx-auto px-0.5 lg:px-0 py-5 gap-7 snap-x lg:snap-none overflow-auto no-scrollbar">
+                <x-news-card></x-news-card>
+                <x-news-card></x-news-card>
+                <x-news-card></x-news-card>
+            </div>
         </div>
     </x-container>
     <div class="flex flex-col justify-center items-center my-[60px] py-[60px] bg-[#DCF0E2]">

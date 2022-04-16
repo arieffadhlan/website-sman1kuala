@@ -1,4 +1,4 @@
-<div class="flex flex-col max-w-[24rem] w-full rounded-lg shadow-md">
+<div class="flex flex-col shrink-0 lg:shrink max-w-[24rem] w-full rounded-lg shadow-md">
     <div class="h-44 bg-secondary rounded-t-lg"></div>
     <div class="px-6 py-4">
         <div class="flex justify-between items-center mb-3">

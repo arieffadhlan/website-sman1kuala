@@ -1,10 +1,10 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Homepage;
 
 use Illuminate\View\Component;
 
-class EkstrakulikulerCard extends Component
+class ExtracurricularCard extends Component
 {
     /**
      * Create a new component instance.
@@ -23,7 +23,7 @@ class EkstrakulikulerCard extends Component
      */
     public function render()
     {
-        $ekstrakulikulers = [
+        $extracurricularActivities = [
             "PMR",
             "Pramuka",
             "Paskibraka",
@@ -34,6 +34,6 @@ class EkstrakulikulerCard extends Component
             "Musik",
         ];
 
-        return view('components.ekstrakulikuler-card', compact('ekstrakulikulers'));
+        return view('components.homepage.extracurricular-card', compact('extracurricularActivities'));
     }
 }

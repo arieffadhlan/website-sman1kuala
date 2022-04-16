@@ -6,31 +6,29 @@
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
     @endpush
 
-    <x-navbar></x-navbar>
     <img src="{{ asset('images/hero-homepage.png') }}" class="w-full" alt="SMAN 1 Kuala">
     <x-container>
         <div class="pt-[60px] pb-10">
-            <h1 class="mb-11 relative text-center font-bold text-3xl tracking-[-0.021em] text-primary after:content-[' '] after:w-[120px] after:h-1 after:left-1/2 after:bottom-[-12px] after:absolute after:bg-secondary after:-translate-x-1/2">Berita Terbaru</h1>
-            <div class="container flex flex-nowrap lg:flex-wrap xl:flex-nowrap justify-start lg:justify-center items-center mx-auto px-0.5 lg:px-0 py-5 gap-7 snap-x lg:snap-none overflow-auto no-scrollbar">
-                <x-news-card></x-news-card>
-                <x-news-card></x-news-card>
-                <x-news-card></x-news-card>
+            <h1 class="relative mb-11 text-center text-3xl tracking-[-0.021em] font-bold text-primary after:content-[' '] after:absolute after:w-[120px] after:h-1 after:left-1/2 after:bottom-[-12px] after:bg-secondary after:-translate-x-1/2">Berita Terbaru</h1>
+            <div class="no-scrollbar container flex flex-nowrap justify-start items-center gap-7 mx-auto px-0.5 py-5 overflow-auto snap-x lg:flex-wrap xl:flex-nowrap lg:justify-center lg:px-0 lg:snap-none">
+                <x-homepage.news-card></x-homepage.news-card>
+                <x-homepage.news-card></x-homepage.news-card>
+                <x-homepage.news-card></x-homepage.news-card>
             </div>
         </div>
     </x-container>
-    <div class="flex flex-col justify-center items-center my-[60px] py-[60px] bg-[#DCF0E2]">
-        <h1 class="mb-[64px] relative text-center font-bold text-3xl tracking-[-0.021em] text-primary after:content-[' '] after:w-[120px] after:h-1 after:left-1/2 after:bottom-[-12px] after:absolute after:bg-secondary after:-translate-x-1/2">Ekstrakulikuler</h1>
-        <div class="grid grid-rows-2 grid-cols-4 place-items-center gap-5">
-            <x-ekstrakulikuler-card></x-ekstrakulikuler-card>
+    <div class="flex flex-col items-center justify-center my-[60px] py-[60px] bg-[#DCF0E2]">
+        <h1 class="relative mb-11 text-center text-3xl tracking-[-0.021em] font-bold text-primary after:content-[' '] after:absolute after:w-[120px] after:h-1 after:left-1/2 after:bottom-[-12px] after:bg-secondary after:-translate-x-1/2">Ekstrakurikuler</h1>
+        <div class="grid grid-cols-4 grid-rows-2 gap-5 place-items-center">
+            <x-homepage.extracurricular-card></x-homepage.extracurricular-card>
         </div>
     </div>
     <x-container>
-        <div class="flex flex-col justify-center items-center py-[60px]">
-            <h1 class="mb-[64px] relative text-center font-bold text-3xl tracking-[-0.021em] text-primary after:content-[' '] after:w-[120px] after:h-1 after:left-1/2 after:bottom-[-12px] after:absolute after:bg-secondary after:-translate-x-1/2">Denah Lokasi</h1>
-            <div class="container h-[25rem] w-full" id="map"></div>
+        <div class="flex flex-col items-center justify-center py-[60px]">
+            <h1 class="relative mb-11 text-center text-3xl tracking-[-0.021em] font-bold text-primary after:content-[' '] after:absolute after:w-[120px] after:h-1 after:left-1/2 after:bottom-[-12px] after:bg-secondary after:-translate-x-1/2">Denah Lokasi</h1>
+            <div class="container w-full h-[25rem]" id="map"></div>
         </div>
     </x-container>
-    <x-footer></x-footer>
 
     @push('guest-script')
         <script>

@@ -19,8 +19,10 @@
         @stack('guest-head-script')
     </head>
     <body>
-        <div class="font-sans text-gray-900 antialiased">
+        <div class="font-sans antialiased text-gray-900">
+            <x-guest-navbar></x-guest-navbar>
             {{ $slot }}
+            <x-footer></x-footer>
         </div>
     </body>
     

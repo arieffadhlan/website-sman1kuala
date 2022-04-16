@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class Navbar extends Component
+class GuestNavbar extends Component
 {
     /**
      * Create a new component instance.
@@ -23,7 +23,7 @@ class Navbar extends Component
      */
     public function render()
     {
-        $navbar = [
+        $navLinks = [
             'Beranda' => '/',
             'Profil' => '/#',
             'Akademik' => '/#',
@@ -32,6 +32,6 @@ class Navbar extends Component
             'Galeri' => '/galeri'
         ];
 
-        return view('layouts.navbar', compact('navbar'));
+        return view('layouts.guest-navbar', compact('navLinks'));
     }
 }

@@ -24,7 +24,7 @@
     <x-container>
         <div class="flex flex-col justify-center items-center py-[60px]">
             <h1 class="mb-[64px] relative text-center font-bold text-3xl tracking-[-0.021em] text-primary after:content-[' '] after:w-[120px] after:h-1 after:left-1/2 after:bottom-[-12px] after:absolute after:bg-secondary after:-translate-x-1/2">Denah Lokasi</h1>
-            <div class="h-[25rem] w-full" id="map"></div>
+            <div class="container h-[25rem] w-full" id="map"></div>
         </div>
     </x-container>
     <x-footer></x-footer>

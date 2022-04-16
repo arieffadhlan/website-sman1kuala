@@ -869,6 +869,9 @@ select {
 .max-w-xs {
   max-width: 20rem;
 }
+.max-w-screen-2xl {
+  max-width: 1536px;
+}
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -1871,6 +1874,14 @@ select {
   }
 }
 @media (min-width: 1024px) {
+
+  .lg\:block {
+    display: block;
+  }
+
+  .lg\:hidden {
+    display: none;
+  }
 
   .lg\:px-8 {
     padding-left: 2rem;

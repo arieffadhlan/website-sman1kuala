@@ -2,7 +2,7 @@
     <script src="https://unpkg.com/flowbite@1.4.2/dist/flowbite.js"></script>
 @endpush
 
-<nav class="sticky top-0 px-8 py-5 z-[2000] shadow-md bg-white sm:px-16">
+<nav class="fixed top-0 px-8 py-5 w-full z-[2000] shadow-md bg-white sm:px-16">
     <div class="container flex flex-wrap items-center justify-between mx-auto 2xs:items-center 2xs:justify-center 2xs:gap-y-4">
         <a href="{{ route('beranda') }}" class="flex items-center">
             {{-- <img src="/docs/images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Logo SMAN 1 Kuala"> --}}

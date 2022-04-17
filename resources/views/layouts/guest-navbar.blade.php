@@ -8,8 +8,8 @@
             {{-- <img src="/docs/images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Logo SMAN 1 Kuala"> --}}
             <span class="self-center text-2xl font-semibold text-primary whitespace-nowrap">SMAN 1 Kuala</span>
         </a>
-        <div class="flex md:order-2">
-            <a href="{{ route('login') }}" class="block px-5 py-2 border border-transparent rounded-lg text-center text-sm tracking-[-0.006em] bg-secondary font-semibold text-white transition duration-300 ease-in-out hover:bg-[#49a162] active:bg-[#397d4c] disabled:opacity-25 lg:inline-flex lg:items-center">
+        <div class="flex lg:order-2">
+            <a href="{{ route('login') }}" class="block px-5 py-2 border border-transparent rounded-lg text-center text-sm tracking-[-0.006em] bg-secondary font-semibold text-white transition duration-250 ease-in-out hover:ring-2 hover:ring-offset-2 hover:ring-secondary hover:bg-[#49a162] active:bg-[#397d4c] disabled:opacity-25 lg:inline-flex lg:items-center">
                 Masuk
             </a>
             <button data-collapse-toggle="mobile-menu" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 lg:hidden" aria-controls="mobile-menu"  aria-expanded="false">
@@ -27,13 +27,37 @@
                 @foreach ($navLinks as $name => $url)
                     @if ($name == "Beranda")
                         <li>
-                            <x-nav-link :href="$url" :active="request()->routeIs('beranda')" class="block px-5 py-2 rounded-lg bg-[#DCF0E2] transition duration-300 ease-in-out lg:p-0 lg:bg-transparent lg:hover:bg-transparent lg:text-primary" aria-current="page">
+                            <x-nav-link :href="$url" :active="request()->routeIs('beranda')" class="block px-5 py-2 rounded-lg bg-gray-200 transition duration-300 ease-in-out lg:p-0 lg:bg-transparent lg:hover:bg-transparent lg:text-primary" aria-current="page">
                                 {{ $name }}
                             </x-nav-link>
                         </li>
+                    @elseif (in_array($name, ["Profil", "Akademik"]))
+                        <li>
+                            <button id="dropdownNavbarLink" data-dropdown-toggle="{{ strtolower($name) . "Dropdown" }}" class="flex items-center justify-between px-5 py-2 w-full rounded-lg text-sm tracking-[-0.006em] font-normal hover:bg-gray-100 lg:hover:bg-transparent lg:p-0 lg:w-auto lg:border-0">
+                                {{ $name }} 
+                                <svg class="ml-0.5 w-4 h-4" fill="#252F3F" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            </button>
+                            <div>
+                                <ul>
+                                    <li id="{{ strtolower($name) . "Dropdown" }}" class="!static hidden py-1 lgMax:!transform-none lg:!absolute lg:!mt-[18px] lg:rounded lg:divide-y lg:divide-gray-100 lg:bg-white lg:shadow">
+                                        @if ($name == "Profil")
+                                            <x-nav-link href="#" class="block py-2 px-10 text-primary rounded-lg hover:bg-gray-100 lg:rounded-none">Sambutan Kepala Sekolah</x-nav-link>
+                                            <x-nav-link href="#" class="block py-2 px-10 text-primary rounded-lg hover:bg-gray-100 lg:rounded-none">Sejarah</x-nav-link>
+                                            <x-nav-link href="#" class="block py-2 px-10 text-primary rounded-lg hover:bg-gray-100 lg:rounded-none">Visi & Misi</x-nav-link>
+                                            <x-nav-link href="#" class="block py-2 px-10 text-primary rounded-lg hover:bg-gray-100 lg:rounded-none">Sarana Prasarana</x-nav-link>
+                                            <x-nav-link href="#" class="block py-2 px-10 text-primary rounded-lg hover:bg-gray-100 lg:rounded-none">Struktur Organisasi</x-nav-link>
+                                        @elseif ($name == "Akademik")
+                                            <x-nav-link href="#" class="block py-2 px-10 text-primary rounded-lg hover:bg-gray-100 lg:rounded-none">Kalender</x-nav-link>
+                                            <x-nav-link href="#" class="block py-2 px-10 text-primary rounded-lg hover:bg-gray-100 lg:rounded-none">Tata Tertib</x-nav-link>
+                                            <x-nav-link href="#" class="block py-2 px-10 text-primary rounded-lg hover:bg-gray-100 lg:rounded-none">Prestasi</x-nav-link>
+                                        @endif
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
                     @else
                         <li>
-                            <x-nav-link :href="$url" class="block px-5 py-2 lg:p-0 rounded-lg transition duration-300 ease-in-out hover:bg-[#DCF0E2] lg:bg-transparent lg:text-primary  lg:hover:bg-transparent" aria-current="page">
+                            <x-nav-link :href="$url" class="block px-5 py-2 lg:p-0 rounded-lg transition duration-300 ease-in-out hover:bg-gray-100 lg:bg-transparent lg:text-primary lg:hover:bg-transparent" aria-current="page">
                                 {{ $name }}
                             </x-nav-link>
                         </li>

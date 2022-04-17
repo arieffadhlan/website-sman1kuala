@@ -10,6 +10,7 @@ module.exports = {
     theme: {
         extend: {
             screens: {
+                'lgMax': {'max': '1024px'},
                 'xs': '480px',
                 '2xs': {'max': '364px'}
             },

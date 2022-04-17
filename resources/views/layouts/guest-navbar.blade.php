@@ -3,16 +3,13 @@
 @endpush
 
 <nav class="fixed top-0 px-8 py-5 w-full z-[2000] shadow-md bg-white sm:px-16">
-    <div class="container flex flex-wrap items-center justify-between mx-auto 2xs:items-center 2xs:justify-center 2xs:gap-y-4">
+    <div class="container flex flex-wrap items-center justify-between mx-auto lg:flex-nowrap">
         <a href="{{ route('beranda') }}" class="flex items-center">
             {{-- <img src="/docs/images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Logo SMAN 1 Kuala"> --}}
-            <span class="self-center text-2xl font-semibold text-primary whitespace-nowrap">SMAN 1 Kuala</span>
+            <span class="self-center text-xl font-semibold text-primary whitespace-nowrap xs:text-2xl">SMAN 1 Kuala</span>
         </a>
-        <div class="flex lg:order-2">
-            <a href="{{ route('login') }}" class="block px-5 py-2 border border-transparent rounded-lg text-center text-sm tracking-[-0.006em] bg-secondary font-semibold text-white transition duration-250 ease-in-out hover:ring-2 hover:ring-offset-2 hover:ring-secondary hover:bg-[#49a162] active:bg-[#397d4c] disabled:opacity-25 lg:inline-flex lg:items-center">
-                Masuk
-            </a>
-            <button data-collapse-toggle="mobile-menu" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 lg:hidden" aria-controls="mobile-menu"  aria-expanded="false">
+        <div class="flex">
+            <button data-collapse-toggle="mobile-menu" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 lg:hidden" aria-controls="mobile-menu"  aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
@@ -22,7 +19,7 @@
                 </svg>
             </button>
         </div>
-        <div class="hidden w-full lg:block lg:w-auto lg:order-1" id="mobile-menu">
+        <div class="hidden w-full lg:block lg:w-auto" id="mobile-menu">
             <ul class="flex flex-col mt-4 space-y-1 lg:flex-row lg:items-center lg:space-x-8 lg:space-y-0 lg:mt-0">
                 @foreach ($navLinks as $name => $url)
                     @if ($name == "Beranda")
@@ -41,7 +38,7 @@
                                 <ul>
                                     <li id="{{ strtolower($name) . "Dropdown" }}" class="!static hidden py-1 lgMax:!transform-none lg:!absolute lg:!mt-[18px] lg:rounded lg:divide-y lg:divide-gray-100 lg:bg-white lg:shadow">
                                         @if ($name == "Profil")
-                                            <x-nav-link href="#" class="block py-2 px-10 text-primary rounded-lg hover:bg-gray-100 lg:rounded-none">Sambutan Kepala Sekolah</x-nav-link>
+                                            <x-nav-link :href="route('sambutan-kepala-sekolah')" :active="request()->routeIs('sambutan-kepala-sekolah')" class="block py-2 px-10 text-primary rounded-lg hover:bg-gray-100 lg:rounded-none">Sambutan Kepala Sekolah</x-nav-link>
                                             <x-nav-link href="#" class="block py-2 px-10 text-primary rounded-lg hover:bg-gray-100 lg:rounded-none">Sejarah</x-nav-link>
                                             <x-nav-link href="#" class="block py-2 px-10 text-primary rounded-lg hover:bg-gray-100 lg:rounded-none">Visi & Misi</x-nav-link>
                                             <x-nav-link href="#" class="block py-2 px-10 text-primary rounded-lg hover:bg-gray-100 lg:rounded-none">Sarana Prasarana</x-nav-link>
@@ -63,6 +60,9 @@
                         </li>
                     @endif
                 @endforeach
+                <a href="{{ route('login') }}" class="block px-5 py-2 border border-transparent rounded-lg text-center text-sm tracking-[-0.006em] bg-secondary font-semibold text-white transition duration-250 ease-in-out hover:ring-2 hover:ring-offset-2 hover:ring-secondary hover:bg-[#49a162] active:bg-[#397d4c] disabled:opacity-25 lg:inline-flex lg:items-center">
+                    Masuk
+                </a>
             </ul>
         </div>
     </div>

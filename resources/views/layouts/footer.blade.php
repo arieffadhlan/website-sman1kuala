@@ -1,4 +1,4 @@
-<div class="mt-[100px] px-16 py-20 w-full bg-[#DCF0E2] sm:mt-[120px]">
+<div class="mt-[100px] px-8 py-16 w-full bg-[#DCF0E2] sm:mt-[120px] sm:px-16 sm:py-20">
     <div class="container flex flex-wrap mx-auto gap-20 md:gap-36">
         <div class="flex flex-col max-w-xs gap-y-3">
             <h1 class="text-2xl tracking-[-0.019em] font-bold text-primary">SMAN 1 Kuala</h1>

@@ -1,12 +1,12 @@
 <x-guest-layout>
     @push('guest-styles')
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @endpush
     @push('guest-head-script')
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @endpush
 
-    <img src="{{ asset('images/hero-homepage.png') }}" class="pt-[72px] w-full" alt="SMAN 1 Kuala">
+    <img src="{{ asset('images/hero-homepage.webp') }}" class="pt-[72px] w-full" alt="SMAN 1 Kuala">
     <x-container>
         <div class="pt-20 pb-12 sm:pt-[100px] sm:pb-[60px]">
             <div class="grid grid-rows-2 grid-cols-2 place-items-center gap-8 lg:gap-0 mx-auto w-fit 2xs:grid-cols-1 lg:grid-rows-1 lg:grid-cols-4">

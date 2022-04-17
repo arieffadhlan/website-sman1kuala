@@ -11,7 +11,7 @@ module.exports = {
         extend: {
             screens: {
                 'xs': '480px',
-                '2xs': {'max': '360px'}
+                '2xs': {'max': '364px'}
             },
             fontFamily: {
                 sans: ['Inter', ...defaultTheme.fontFamily.sans],

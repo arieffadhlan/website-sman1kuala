@@ -10,7 +10,8 @@ module.exports = {
     theme: {
         extend: {
             screens: {
-                'xs': '360px'
+                'xs': '480px',
+                '2xs': {'max': '360px'}
             },
             fontFamily: {
                 sans: ['Inter', ...defaultTheme.fontFamily.sans],

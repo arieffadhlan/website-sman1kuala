@@ -1,4 +1,4 @@
-<div class="flex flex-col shrink-0 max-w-[24rem] w-full rounded-lg shadow-md lg:shrink">
+<div class="flex flex-col shrink-0 max-w-[24rem] w-full snap-always snap-start rounded-lg shadow-md lg:shrink">
     <div class="rounded-t-lg h-44 bg-secondary"></div>
     <div class="px-6 py-4">
         <div class="flex items-center justify-between mb-3">

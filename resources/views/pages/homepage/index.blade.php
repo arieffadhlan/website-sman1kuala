@@ -6,7 +6,7 @@
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
     @endpush
 
-    <img src="{{ asset('images/hero-homepage.png') }}" class="w-full" alt="SMAN 1 Kuala">
+    <img src="{{ asset('images/hero-homepage.png') }}" class="pt-[72px] w-full" alt="SMAN 1 Kuala">
     <x-container>
         <div class="pt-20 pb-12 sm:pt-[100px] sm:pb-[60px]">
             <div class="grid grid-rows-2 grid-cols-2 place-items-center gap-8 lg:gap-0 mx-auto w-fit 2xs:grid-cols-1 lg:grid-rows-1 lg:grid-cols-4">

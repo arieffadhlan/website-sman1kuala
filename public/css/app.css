@@ -1419,6 +1419,9 @@ input[type=file]::file-selector-button:hover {
 .pt-8 {
   padding-top: 2rem;
 }
+.pt-\[72px\] {
+  padding-top: 72px;
+}
 .text-center {
   text-align: center;
 }

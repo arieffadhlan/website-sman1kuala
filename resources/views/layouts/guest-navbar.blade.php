@@ -6,7 +6,7 @@
     <div class="container flex flex-wrap items-center justify-between mx-auto lg:flex-nowrap">
         <a href="{{ route('beranda') }}" class="flex items-center">
             {{-- <img src="/docs/images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Logo SMAN 1 Kuala"> --}}
-            <span class="self-center text-xl font-semibold text-primary whitespace-nowrap xs:text-2xl">SMAN 1 Kuala</span>
+            <span class="self-center text-xl font-semibold text-primary whitespace-nowrap xs:text-2xl">SMAN 9 Medan</span>
         </a>
         <div class="flex">
             <button data-collapse-toggle="mobile-menu" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 lg:hidden" aria-controls="mobile-menu"  aria-expanded="false">
@@ -39,8 +39,8 @@
                                     <li id="{{ strtolower($name) . "Dropdown" }}" class="!static hidden py-1 lgMax:!transform-none lg:!absolute lg:!mt-[18px] lg:rounded lg:divide-y lg:divide-gray-100 lg:bg-white lg:shadow">
                                         @if ($name == "Profil")
                                             <x-nav-link :href="route('sambutan-kepala-sekolah')" :active="request()->routeIs('sambutan-kepala-sekolah')" class="block py-2 px-10 text-primary rounded-lg hover:bg-gray-100 lg:rounded-none">Sambutan Kepala Sekolah</x-nav-link>
-                                            <x-nav-link href="#" class="block py-2 px-10 text-primary rounded-lg hover:bg-gray-100 lg:rounded-none">Sejarah</x-nav-link>
-                                            <x-nav-link href="#" class="block py-2 px-10 text-primary rounded-lg hover:bg-gray-100 lg:rounded-none">Visi & Misi</x-nav-link>
+                                            <x-nav-link :href="route('sejarah')" :active="request()->routeIs('sejarah')" class="block py-2 px-10 text-primary rounded-lg hover:bg-gray-100 lg:rounded-none">Sejarah</x-nav-link>
+                                            <x-nav-link :href="route('visi-misi')" :active="request()->routeIs('visi-misi')" class="block py-2 px-10 text-primary rounded-lg hover:bg-gray-100 lg:rounded-none">Visi & Misi</x-nav-link>
                                             <x-nav-link href="#" class="block py-2 px-10 text-primary rounded-lg hover:bg-gray-100 lg:rounded-none">Sarana Prasarana</x-nav-link>
                                             <x-nav-link href="#" class="block py-2 px-10 text-primary rounded-lg hover:bg-gray-100 lg:rounded-none">Struktur Organisasi</x-nav-link>
                                         @elseif ($name == "Akademik")

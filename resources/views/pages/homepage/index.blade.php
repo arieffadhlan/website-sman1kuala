@@ -6,7 +6,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @endpush
 
-    <img src="{{ asset('images/hero-homepage.webp') }}" class="pt-[72px] w-full" alt="SMAN 1 Kuala">
+    <img src="{{ asset('images/hero-homepage.jpeg') }}" class="pt-[72px] w-full h-[540px]" alt="SMAN 9 Medan">
     <x-container>
         <div class="pt-20 pb-12 sm:pt-[100px] sm:pb-[60px]">
             <div class="grid grid-rows-2 grid-cols-2 place-items-center gap-8 lg:gap-0 mx-auto w-fit 2xs:grid-cols-1 lg:grid-rows-1 lg:grid-cols-4">
@@ -52,7 +52,7 @@
 
     @push('guest-script')
         <script>
-            let map = L.map('map').setView([3.5237689647852695, 98.39105149977733], 15);
+            let map = L.map('map').setView([3.722333606341312, 98.68906287106076], 15);
             L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
                 maxZoom: 18,
                 attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' + 'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -61,7 +61,7 @@
                 zoomOffset: -1
             }).addTo(map);
 
-            L.marker([3.5237689647852695, 98.39105149977733]).addTo(map)
+            L.marker([3.722333606341312, 98.68906287106076]).addTo(map)
         </script>
     @endpush
 </x-guest-layout>

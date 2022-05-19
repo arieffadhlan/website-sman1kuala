@@ -28,7 +28,6 @@ class GuestNavbar extends Component
             'Profil' => '/#',
             'Akademik' => '/#',
             'Berita' => '/berita',
-            'Artikel' => '/artikel',
             'Galeri' => '/galeri'
         ];
 

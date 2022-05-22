@@ -20,11 +20,17 @@
         @stack('guest-head-script')
     </head>
     <body>
-        <div class="overflow-hidden font-sans antialiased text-gray-900">
-            <x-guest-navbar></x-guest-navbar>
-            {{ $slot }}
-            <x-footer></x-footer>
-        </div>
+        @if (Request::route()->getName() === 'login')
+            <div class="overflow-hidden font-sans antialiased">
+                {{ $slot }}
+            </div>
+        @else
+            <div class="overflow-hidden font-sans antialiased">
+                <x-guest-navbar></x-guest-navbar>
+                {{ $slot }}
+                <x-footer></x-footer>
+            </div>
+        @endif
     </body>
     
     @stack('guest-script')

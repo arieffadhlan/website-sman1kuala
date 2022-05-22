@@ -13,6 +13,10 @@ Route::prefix('profil')->group(function () {
     Route::view('visi-misi', 'pages.homepage.profil.visi-misi')->name('visi-misi');
 });
 
+Route::prefix('akademik')->group(function () {
+    Route::view('kalender-akademik', 'pages.homepage.akademik.kalender-akademik')->name('kalender-akademik');
+});
+
 Route::get('/dashboard', function () {
     return view('pages.dashboard.index');
 })->middleware(['auth'])->name('dashboard');

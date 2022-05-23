@@ -18,6 +18,7 @@ module.exports = {
                 sans: ['Inter', ...defaultTheme.fontFamily.sans],
             },
             colors: {
+                dashboard: "#064e3b",
                 primary: "#252F3F",
                 secondary: "#51B36D",
                 neutral: "#757575",

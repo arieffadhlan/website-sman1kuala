@@ -13,13 +13,16 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/all.min.css') }}"/>
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
-            @include('layouts.app-navbar')
+            @include('layouts.app-sidebar')
+            
+            {{-- @include('layouts.app-navbar')
 
             <!-- Page Heading -->
             <header class="bg-white shadow">
@@ -31,7 +34,17 @@
             <!-- Page Content -->
             <main>
                 {{ $slot }}
-            </main>
+            </main> --}}
         </div>
     </body>
+    <script type="text/javascript">
+      /* Sidebar - Side navigation menu on mobile/responsive mode */
+      function toggleNavbar(collapseID) {
+        document.getElementById(collapseID).classList.toggle("hidden");
+        document.getElementById(collapseID).classList.toggle("bg-white");
+        document.getElementById(collapseID).classList.toggle("m-2");
+        document.getElementById(collapseID).classList.toggle("py-3");
+        document.getElementById(collapseID).classList.toggle("px-6");
+      }
+    </script>
 </html>

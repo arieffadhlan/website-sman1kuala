@@ -18,33 +18,13 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.app-sidebar')
-            
-            {{-- @include('layouts.app-navbar')
-
-            <!-- Page Heading -->
-            <header class="bg-white shadow">
-                <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-
-            <!-- Page Content -->
-            <main>
+    <body class="font-sans antialiased bg-gray-100">
+        <div class="min-h-screen">
+            <x-app-sidebar></x-app-sidebar>
+            <main class="relative px-4 pt-12 md:px-14">
                 {{ $slot }}
-            </main> --}}
+            </main>
         </div>
     </body>
-    <script type="text/javascript">
-      /* Sidebar - Side navigation menu on mobile/responsive mode */
-      function toggleNavbar(collapseID) {
-        document.getElementById(collapseID).classList.toggle("hidden");
-        document.getElementById(collapseID).classList.toggle("bg-white");
-        document.getElementById(collapseID).classList.toggle("m-2");
-        document.getElementById(collapseID).classList.toggle("py-3");
-        document.getElementById(collapseID).classList.toggle("px-6");
-      }
-    </script>
+    <script src="{{ asset('js/dashboard.js') }}"></script>
 </html>

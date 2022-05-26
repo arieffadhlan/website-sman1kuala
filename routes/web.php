@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +26,7 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::view('dashboard', 'pages.dashboard.index')->name('dashboard');
+    Route::get('dashboard', DashboardController::class)->name('dashboard');
     Route::get('/data-master/kelas', [ClassController::class, 'index'])->name('kelas');
     Route::get('/data-master/guru', [TeacherController::class, 'index'])->name('guru');
     Route::get('/data-master/siswa', [SiswaController::class, 'index'])->name('siswa');

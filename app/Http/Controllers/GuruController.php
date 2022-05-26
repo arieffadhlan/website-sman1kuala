@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\GuruRequest;
+use App\Models\tbl_bidangStudi;
 use App\Models\tbl_guru;
 use Illuminate\Http\Request;
 
@@ -31,7 +33,12 @@ class GuruController extends Controller
             });
         }
 
-        $teachers = $teacherQuery->latest()->paginate(10);
+        $teachers = $teacherQuery
+            ->select('NIP', 'nama_guru', 'tbl_bidang_studis.nama_bidangStudi', 'gol_guru', 'ket_guru')
+            ->join('tbl_bidang_studis', 'tbl_bidang_studis.id', '=', 'tbl_gurus.id_bidangStudi')
+            ->paginate(10);
+
+        // $teachers = $teacherQuery->latest()->paginate(10);
 
         return view('pages.dashboard.data-master.guru.index', compact('teachers', 'sortColumn', 'sortDirection', 'searchTeacher'));
     }
@@ -43,7 +50,8 @@ class GuruController extends Controller
      */
     public function create()
     {
-        return view('pages.dashboard.data-master.kelas.create');
+        $fieldsOfStudy = tbl_bidangStudi::get();
+        return view('pages.dashboard.data-master.guru.create', compact('fieldsOfStudy'));
     }
 
     /**
@@ -52,18 +60,26 @@ class GuruController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GuruRequest $request)
     {
-        //
+        tbl_guru::create([
+            'NIP' => $request->nip,
+            'nama_guru' => $request->nama_guru,
+            'id_bidangStudi' => $request->bidang_studi,
+            'gol_guru' => $request->golongan_guru,
+            'ket_guru' => $request->keterangan_guru
+        ]);
+
+        return redirect(route('guru'))->with('success', 'Data guru telah berhasil ditambahkan!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $nip
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($nip)
     {
         //
     }
@@ -71,34 +87,48 @@ class GuruController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $nip
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($nip)
     {
-        //
+        $teacher = tbl_guru::where('NIP', $nip)->first();
+        $fieldsOfStudy = tbl_bidangStudi::get();
+        return view('pages.dashboard.data-master.guru.edit', compact('teacher', 'fieldsOfStudy'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $nip
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $nip)
     {
-        //
+        $teacher = tbl_guru::where('NIP', $nip)->first();
+        $teacher->update([
+            'NIP' => $request->nip,
+            'nama_guru' => $request->nama_guru,
+            'id_bidangStudi' => $request->bidang_studi,
+            'gol_guru' => $request->golongan_guru,
+            'ket_guru' => $request->keterangan_guru
+        ]);
+
+        return redirect(route('guru'))->with('success', 'Data guru telah berhasil di-update!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $nip
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($nip)
     {
-        //
+        $teacher = tbl_guru::find($nip);
+        $teacher->delete();
+
+        return redirect(route('guru'))->with('success', 'Data guru telah berhasil dihapus!');
     }
 }

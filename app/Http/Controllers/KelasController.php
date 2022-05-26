@@ -33,10 +33,12 @@ class KelasController extends Controller
             });
         }
 
-        // $classes = $classQuery->join('tbl_gurus', 'tbl_gurus.NIP', '=', 'tbl_kelas.wali_kelas')
-        //     ->get();
-        // dd($classQuery);
-        $classes = $classQuery->latest()->paginate(10);
+        $classes = $classQuery
+            ->select('tbl_kelas.id', 'nama', 'nama_guru')
+            ->leftJoin('tbl_gurus', 'tbl_gurus.NIP', '=', 'tbl_kelas.wali_kelas')
+            ->paginate(10);
+
+        // $classes = $classQuery->paginate(10);
 
         return view('pages.dashboard.data-master.kelas.index', compact('classes', 'sortColumn', 'sortDirection', 'searchClass'));
     }

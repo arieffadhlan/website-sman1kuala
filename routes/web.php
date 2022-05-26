@@ -43,8 +43,8 @@ Route::middleware('auth')->group(function () {
         Route::get('guru', 'index')->name('guru');
         Route::get('guru/create', 'create')->name('guru.create');
         Route::post('guru', 'store')->name('guru.store');
-        Route::get('guru/{id}/edit', 'edit')->name('guru.edit');
-        Route::put('guru/{id}', 'update')->name('guru.update');
-        Route::delete('guru/{id}', 'destroy')->name('guru.destroy');
+        Route::get('guru/{nip}/edit', 'edit')->name('guru.edit');
+        Route::put('guru/{nip}', 'update')->name('guru.update');
+        Route::delete('guru/{nip}', 'destroy')->name('guru.destroy');
     });
 });

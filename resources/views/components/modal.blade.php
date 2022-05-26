@@ -25,7 +25,7 @@
             <div class="px-4 py-3 bg-gray-50 sm:px-6">
                 @if ($modalTitle == 'Hapus Data' || $modalTitle == 'Keluar Dashboard')  
                     @if ($modalTitle == 'Hapus Data')
-                        <form action="{{ route('kelas.destroy', $id) }}" method="post">
+                        <form action="{{ $route }}" method="post">
                             @csrf
                             @method('delete')
                     @else
@@ -63,6 +63,8 @@
                 let modalDeleteId = '#modalDelete'.concat({{ $id }});
                 let openModalId = '.openModal'.concat({{ $id }});
                 let closeModalId = '.closeModal'.concat({{ $id }});
+                console.log(document.querySelector(`${openModalId}`));
+                console.log(openModalId);
                 $(`${openModalId}`).on('click', function(e){
                     $(`${modalDeleteId}`).removeClass('invisible');
                 });

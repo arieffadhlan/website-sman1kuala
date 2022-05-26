@@ -88,22 +88,21 @@
                     @endforeach
                 @endforeach
                 <li class="items-center">
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <a 
-                            href="{{ route('logout') }}"
-                            onclick="event.preventDefault(); this.closest('form').submit();" 
-                            class="block py-3 text-sm font-medium text-primary/70 md:text-white/70"
-                        >
-                            <div class="inline-block mr-1"><i class="block mr-2 text-sm fa-fw fas fa-sign-out-alt text-primary/70 md:text-white/70"></i></div>
-                            Keluar
-                        </a>
-                    </form>
+                    <button type="button" class="openModal block py-3 text-sm font-medium text-primary/70 md:text-white/70">
+                        <div class="inline-block mr-1"><i class="block mr-2 text-sm fa-fw fas fa-sign-out-alt text-primary/70 md:text-white/70"></i></div>
+                        <span>Keluar</span>
+                    </button>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+
+{{-- Modal Logout --}}
+<x-modal>
+    <x-slot:modalTitle>Keluar Dashboard</x-slot:modalTitle>
+    Apakah Anda yakin ingin keluar dari dashboard?
+</x-modal>
 
 {{-- Sidebar Header --}}
 <div class="relative md:ml-64">

@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StudentController;
 
 require __DIR__ . '/auth.php';
 
@@ -24,4 +25,5 @@ Route::middleware('auth')->group(function () {
     Route::view('dashboard', 'pages.dashboard.index')->name('dashboard');
     Route::get('/data-master/kelas', [ClassController::class, 'index'])->name('kelas');
     Route::get('/data-master/guru', [TeacherController::class, 'index'])->name('guru');
+    Route::get('/data-master/siswa', [StudentController::class, 'index'])->name('siswa');
 });

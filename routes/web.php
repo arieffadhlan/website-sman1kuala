@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AkunController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
@@ -47,5 +48,14 @@ Route::middleware('auth')->group(function () {
         Route::get('guru/{nip}/edit', 'edit')->name('guru.edit');
         Route::put('guru/{nip}', 'update')->name('guru.update');
         Route::delete('guru/{nip}', 'destroy')->name('guru.destroy');
+    });
+
+    Route::controller(AkunController::class)->prefix('data-master/')->group(function () {
+        Route::get('akun', 'index')->name('akun');
+        Route::get('akun/create', 'create')->name('akun.create');
+        Route::post('akun', 'store')->name('akun.store');
+        Route::get('akun/{id}/edit', 'edit')->name('akun.edit');
+        Route::put('akun/{id}', 'update')->name('akun.update');
+        Route::delete('akun/{id}', 'destroy')->name('akun.destroy');
     });
 });

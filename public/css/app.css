@@ -1304,6 +1304,9 @@ input[type=file]::file-selector-button:hover {
 .gap-5 {
   gap: 1.25rem;
 }
+.gap-2 {
+  gap: 0.5rem;
+}
 .gap-y-9 {
   row-gap: 2.25rem;
 }
@@ -1329,6 +1332,9 @@ input[type=file]::file-selector-button:hover {
 .gap-x-6 {
   -moz-column-gap: 1.5rem;
        column-gap: 1.5rem;
+}
+.gap-y-10 {
+  row-gap: 2.5rem;
 }
 .space-y-1 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
@@ -1738,6 +1744,9 @@ input[type=file]::file-selector-button:hover {
 }
 .text-center {
   text-align: center;
+}
+.text-right {
+  text-align: right;
 }
 .text-justify {
   text-align: justify;

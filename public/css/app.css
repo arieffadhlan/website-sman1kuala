@@ -1022,6 +1022,9 @@ input[type=file]::file-selector-button:hover {
 .mb-2 {
   margin-bottom: 0.5rem;
 }
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
 .block {
   display: block;
 }

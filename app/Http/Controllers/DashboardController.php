@@ -19,13 +19,15 @@ class DashboardController extends Controller
         $fieldsOfStudy = DB::table('tbl_bidang_studis')->count();
         $teachers = DB::table('tbl_gurus')->count();
         $students = DB::table('tbl_siswas')->count();
-        $accounts = DB::table('users')->count();
+        $extracurriculars = DB::table('tbl_ekstrakurikulers')->count();
+        $accounts = DB::table('tbl_akuns')->count();
 
         return view('pages.dashboard.index', [
             'classes' => $classes,
             'fieldsOfStudy' => $fieldsOfStudy,
             'teachers' => $teachers,
             'students' => $students,
+            'extracurriculars' => $extracurriculars,
             'accounts' => $accounts,
         ]);
     }

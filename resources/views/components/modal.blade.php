@@ -63,8 +63,6 @@
                 let modalDeleteId = '#modalDelete'.concat({{ $id }});
                 let openModalId = '.openModal'.concat({{ $id }});
                 let closeModalId = '.closeModal'.concat({{ $id }});
-                console.log(document.querySelector(`${openModalId}`));
-                console.log(openModalId);
                 $(`${openModalId}`).on('click', function(e){
                     $(`${modalDeleteId}`).removeClass('invisible');
                 });

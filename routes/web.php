@@ -2,15 +2,17 @@
 
 use App\Http\Controllers\AkunController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EkstrakurikulerController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\KelasController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiswaController;
+use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
 
 Route::middleware('guest')->group(function () {
-    Route::view('/', 'pages.homepage.index')->name('beranda');
+    Route::get('/', HomepageController::class)->name('beranda');
 
     Route::prefix('profil')->group(function () {
         Route::view('sambutan-kepala-sekolah', 'pages.homepage.profil.sambutan-kepala-sekolah')->name('sambutan-kepala-sekolah');
@@ -28,8 +30,6 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('dashboard', DashboardController::class)->name('dashboard');
-    Route::get('/data-master/kelas', [ClassController::class, 'index'])->name('kelas');
-    Route::get('/data-master/guru', [TeacherController::class, 'index'])->name('guru');
     Route::get('/data-master/siswa', [SiswaController::class, 'index'])->name('siswa');
 
     Route::controller(KelasController::class)->prefix('data-master/')->group(function () {
@@ -48,6 +48,15 @@ Route::middleware('auth')->group(function () {
         Route::get('guru/{nip}/edit', 'edit')->name('guru.edit');
         Route::put('guru/{nip}', 'update')->name('guru.update');
         Route::delete('guru/{nip}', 'destroy')->name('guru.destroy');
+    });
+
+    Route::controller(EkstrakurikulerController::class)->prefix('data-master/')->group(function () {
+        Route::get('ekstrakurikuler', 'index')->name('ekstrakurikuler');
+        Route::get('ekstrakurikuler/create', 'create')->name('ekstrakurikuler.create');
+        Route::post('ekstrakurikuler', 'store')->name('ekstrakurikuler.store');
+        Route::get('ekstrakurikuler/{nip}/edit', 'edit')->name('ekstrakurikuler.edit');
+        Route::put('ekstrakurikuler/{nip}', 'update')->name('ekstrakurikuler.update');
+        Route::delete('ekstrakurikuler/{nip}', 'destroy')->name('ekstrakurikuler.destroy');
     });
 
     Route::controller(AkunController::class)->prefix('data-master/')->group(function () {

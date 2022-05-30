@@ -12,7 +12,7 @@
 @endphp
 
 @if ($slot == "Aksi")
-    <th scope="col" class="px-6 py-3 text-left text-sm font-semibold text-primary uppercase tracking-wider">
+    <th scope="col" class="px-6 py-3 text-left text-sm font-semibold bg-gray-200/50 text-primary uppercase tracking-wider">
         <div class="flex justify-center items-center space-x-4 ">
             <div class="flex space-x-1 justify-between items-center">
                 <span>{{ $slot }}</span>
@@ -21,7 +21,7 @@
     </th>
 @else
     {{-- <th scope="col" class="px-6 py-3 text-left text-sm font-semibold text-primary uppercase tracking-wider" onclick="sortTable({{ $columnId }})"> --}}
-    <th scope="col" class="px-6 py-3 text-left text-sm font-semibold text-primary uppercase tracking-wider">
+    <th scope="col" class="px-6 py-3 text-left text-sm font-semibold bg-gray-200/50 text-primary uppercase tracking-wider">
         <div class="flex justify-center items-center space-x-4 ">
             {{-- <a href="#" class="flex space-x-1 justify-between items-center">
                 <span>{{ $slot }}</span>

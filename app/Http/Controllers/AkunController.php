@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AkunRequest;
-use App\Models\User;
+use App\Models\tbl_akun;
 use Illuminate\Http\Request;
 
 class AkunController extends Controller
@@ -15,7 +15,7 @@ class AkunController extends Controller
      */
     public function index(Request $request)
     {
-        $userQuery = User::query();
+        $userQuery = tbl_akun::query();
         $sortColumn = $request->query('sortColumn');
         $sortDirection = $request->query('sortDirection');
         $searchAccount = $request->query('searchAccount');
@@ -26,8 +26,9 @@ class AkunController extends Controller
 
         if ($searchAccount) {
             $userQuery = $userQuery->where(function ($query) use ($searchAccount) {
-                $query->orWhere('name', 'like', "%$searchAccount%")
-                    ->orWhere('email', 'like', "%$searchAccount%");
+                $query->orWhere('nama', 'like', "%$searchAccount%")
+                    ->orWhere('email', 'like', "%$searchAccount%")
+                    ->orWhere('role', 'like', "%$searchAccount%");
             });
         }
 
@@ -56,10 +57,10 @@ class AkunController extends Controller
      */
     public function store(AkunRequest $request)
     {
-        User::create([
-            'name' => $request->name,
+        tbl_akun::create([
+            'nama' => $request->nama,
             'email' => $request->email,
-            'password' => bcrypt($request->password),
+            'password' => bcrypt($request->password)
         ]);
 
         return redirect(route('akun'))->with('success', 'Data Akun telah berhasil ditambahkan!');
@@ -84,7 +85,7 @@ class AkunController extends Controller
      */
     public function edit($id)
     {
-        $account = User::whereId($id)->get();
+        $account = tbl_akun::whereId($id)->get();
         return view('pages.dashboard.data-master.akun.edit', compact('account'));
     }
 
@@ -95,17 +96,13 @@ class AkunController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AkunRequest $request, $id)
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-        ]);
-
-        $account = User::whereId($id)->first();
+        $account = tbl_akun::whereId($id)->first();
         $account->update([
-            'name' => $request->name,
+            'nama' => $request->nama,
             'email' => $request->email,
+            'password' => bcrypt($request->password)
         ]);
 
         return redirect(route('akun'))->with('success', 'Data Akun telah berhasil di-update!');
@@ -119,7 +116,7 @@ class AkunController extends Controller
      */
     public function destroy($id)
     {
-        $account = User::find($id);
+        $account = tbl_akun::find($id);
         $account->delete();
 
         return redirect(route('akun'))->with('success', 'Data Akun telah berhasil dihapus!');

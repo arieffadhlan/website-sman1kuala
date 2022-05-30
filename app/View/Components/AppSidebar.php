@@ -31,7 +31,7 @@ class AppSidebar extends Component
             'Pegawai' => '/data-master/pegawai',
             'Prestasi' => '/data-master/prestasi',
             'Fasilitas' => '/data-master/fasilitas',
-            'Ekstrakurikuler' => '/data-master/esktrakurikuler',
+            'Ekstrakurikuler' => '/data-master/ekstrakurikuler',
             'Berita' => '/data-master/berita',
             'Akun' => '/data-master/akun'
         ];

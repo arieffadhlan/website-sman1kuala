@@ -16,8 +16,8 @@
                     <option disabled class="bg-gray-200 text-gray-400">Pilih wali kelas</option>
                     @if ($teachers->isNotEmpty())
                         @foreach ($teachers as $teacher)
-                            <option value="{{ $teacher->NIP }}"
-                                {{ old('wali_kelas', $class['0']->wali_kelas) == $teacher->NIP ? 'selected' : '' }}>
+                            <option value="{{ $teacher->nip }}"
+                                {{ old('wali_kelas', $class['0']->wali_kelas) == $teacher->nip ? 'selected' : '' }}>
                                 {{ $teacher->nama_guru }}
                             </option>
                         @endforeach

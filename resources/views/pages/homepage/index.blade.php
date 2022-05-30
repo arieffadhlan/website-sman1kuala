@@ -40,7 +40,12 @@
     <div class="flex flex-col items-center justify-center my-12 py-[60px] bg-[#DCF0E2]">
         <h1 class="relative mb-11 text-center text-2xl tracking-[-0.019em] font-bold text-primary after:content-[' '] after:absolute after:w-[120px] after:h-1 after:left-1/2 after:bottom-[-12px] after:bg-secondary after:-translate-x-1/2 sm:text-3xl sm:tracking-[-0.021em]">Ekstrakurikuler</h1>
         <div class="grid grid-rows-4 grid-cols-2 gap-5 place-items-center 2xs:grid-cols-1 sm:grid-rows-4 sm:grid-cols-2 md:grid-rows-3 md:grid-cols-3 lg:grid-rows-2 lg:grid-cols-4">
-            <x-homepage.extracurricular-card></x-homepage.extracurricular-card>
+            @foreach ($extracurriculars as $extracurricular)
+                <x-homepage.extracurricular-card>
+                    <x-slot:icon>{{ $extracurricular->ikon }}</x-slot:icon>
+                    {{ $extracurricular->nama_ekstrakurikuler }}
+                </x-homepage.extracurricular-card>
+            @endforeach
         </div>
     </div>
     <x-container>

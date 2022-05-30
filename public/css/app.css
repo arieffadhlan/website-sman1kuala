@@ -1304,14 +1304,14 @@ input[type=file]::file-selector-button:hover {
 .gap-5 {
   gap: 1.25rem;
 }
-.gap-2 {
-  gap: 0.5rem;
-}
 .gap-y-9 {
   row-gap: 2.25rem;
 }
 .gap-y-5 {
   row-gap: 1.25rem;
+}
+.gap-y-10 {
+  row-gap: 2.5rem;
 }
 .gap-y-\[6px\] {
   row-gap: 6px;
@@ -1332,9 +1332,6 @@ input[type=file]::file-selector-button:hover {
 .gap-x-6 {
   -moz-column-gap: 1.5rem;
        column-gap: 1.5rem;
-}
-.gap-y-10 {
-  row-gap: 2.5rem;
 }
 .space-y-1 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
@@ -1540,13 +1537,17 @@ input[type=file]::file-selector-button:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
-.bg-gray-50 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
-}
 .bg-green-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(222 247 236 / var(--tw-bg-opacity));
+}
+.bg-blue-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(225 239 254 / var(--tw-bg-opacity));
+}
+.bg-gray-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
 .bg-red-100 {
   --tw-bg-opacity: 1;
@@ -1571,6 +1572,9 @@ input[type=file]::file-selector-button:hover {
 .bg-indigo-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(240 245 255 / var(--tw-bg-opacity));
+}
+.bg-gray-200\/50 {
+  background-color: rgb(229 231 235 / 0.5);
 }
 .bg-opacity-75 {
   --tw-bg-opacity: 0.75;
@@ -1888,6 +1892,9 @@ input[type=file]::file-selector-button:hover {
 .text-primary\/60 {
   color: rgb(37 47 63 / 0.6);
 }
+.text-primary\/80 {
+  color: rgb(37 47 63 / 0.8);
+}
 .text-gray-900 {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
@@ -1899,6 +1906,10 @@ input[type=file]::file-selector-button:hover {
 .text-red-500 {
   --tw-text-opacity: 1;
   color: rgb(240 82 82 / var(--tw-text-opacity));
+}
+.text-green-800 {
+  --tw-text-opacity: 1;
+  color: rgb(3 84 63 / var(--tw-text-opacity));
 }
 .text-secondary {
   --tw-text-opacity: 1;
@@ -2035,6 +2046,48 @@ input[type=file]::file-selector-button:hover {
       -ms-overflow-style: none; /* IE and Edge */
       scrollbar-width: none; /* Firefox */
     }
+.file\:\!ml-0::-webkit-file-upload-button {
+  margin-left: 0px !important;
+}
+.file\:\!ml-0::file-selector-button {
+  margin-left: 0px !important;
+}
+.file\:rounded-lg::-webkit-file-upload-button {
+  border-radius: 0.5rem;
+}
+.file\:rounded-lg::file-selector-button {
+  border-radius: 0.5rem;
+}
+.file\:\!bg-dashboard\/10::-webkit-file-upload-button {
+  background-color: rgb(6 78 59 / 0.1) !important;
+}
+.file\:\!bg-dashboard\/10::file-selector-button {
+  background-color: rgb(6 78 59 / 0.1) !important;
+}
+.file\:\!py-2::-webkit-file-upload-button {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+.file\:\!py-2::file-selector-button {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+.file\:\!px-4::-webkit-file-upload-button {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+.file\:\!px-4::file-selector-button {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+.file\:\!text-dashboard::-webkit-file-upload-button {
+  --tw-text-opacity: 1 !important;
+  color: rgb(6 78 59 / var(--tw-text-opacity)) !important;
+}
+.file\:\!text-dashboard::file-selector-button {
+  --tw-text-opacity: 1 !important;
+  color: rgb(6 78 59 / var(--tw-text-opacity)) !important;
+}
 .placeholder\:\!font-normal::-moz-placeholder {
   font-weight: 400 !important;
 }
@@ -2162,6 +2215,12 @@ input[type=file]::file-selector-button:hover {
 }
 .hover\:ring-offset-2:hover {
   --tw-ring-offset-width: 2px;
+}
+.hover\:file\:\!bg-dashboard\/20::-webkit-file-upload-button:hover {
+  background-color: rgb(6 78 59 / 0.2) !important;
+}
+.hover\:file\:\!bg-dashboard\/20::file-selector-button:hover {
+  background-color: rgb(6 78 59 / 0.2) !important;
 }
 .focus\:z-10:focus {
   z-index: 10;
@@ -2292,6 +2351,12 @@ input[type=file]::file-selector-button:hover {
 .active\:text-gray-500:active {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+.active\:file\:\!bg-dashboard\/30::-webkit-file-upload-button:active {
+  background-color: rgb(6 78 59 / 0.3) !important;
+}
+.active\:file\:\!bg-dashboard\/30::file-selector-button:active {
+  background-color: rgb(6 78 59 / 0.3) !important;
 }
 .disabled\:opacity-25:disabled {
   opacity: 0.25;
@@ -2519,14 +2584,14 @@ input[type=file]::file-selector-button:hover {
     line-height: 2.5rem;
   }
 
-  .sm\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-  }
-
   .sm\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
+  }
+
+  .sm\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 
   .sm\:text-5xl {
@@ -2547,12 +2612,12 @@ input[type=file]::file-selector-button:hover {
     line-height: 64px;
   }
 
-  .sm\:tracking-\[-0\.021em\] {
-    letter-spacing: -0.021em;
-  }
-
   .sm\:tracking-\[-0\.014em\] {
     letter-spacing: -0.014em;
+  }
+
+  .sm\:tracking-\[-0\.021em\] {
+    letter-spacing: -0.021em;
   }
 
   .sm\:tracking-\[-0\.022em\] {

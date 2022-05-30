@@ -23,7 +23,7 @@
     <x-dashboard.datatable>
         <x-slot:tableColumnHeaders>
             {{-- <x-dashboard.table-column-header :columnId="0" column-name="NIP" :sort-column="$sortColumn" :sort-direction="$sortDirection">NIP</x-dashboard.table-column-header> --}}
-            <x-dashboard.table-column-header table-name="guru" column-name="NIP" :sort-column="$sortColumn" :sort-direction="$sortDirection">NIP</x-dashboard.table-column-header>
+            <x-dashboard.table-column-header table-name="guru" column-name="nip" :sort-column="$sortColumn" :sort-direction="$sortDirection">NIP</x-dashboard.table-column-header>
             <x-dashboard.table-column-header table-name="guru" column-name="nama_guru" :sort-column="$sortColumn" :sort-direction="$sortDirection">Nama</x-dashboard.table-column-header>
             <x-dashboard.table-column-header table-name="guru" column-name="id_bidangStudi" :sort-column="$sortColumn" :sort-direction="$sortDirection">Bidang Studi</x-dashboard.table-column-header>
             <x-dashboard.table-column-header table-name="guru" column-name="gol_guru" :sort-column="$sortColumn" :sort-direction="$sortDirection">Golongan</x-dashboard.table-column-header>
@@ -40,7 +40,7 @@
             @endphp
             <tr>
                 <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $teacher->NIP }}</div>
+                    <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $teacher->nip }}</div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                     <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $teacher->nama_guru }}</div>
@@ -56,7 +56,7 @@
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                     <div class="flex justify-center items-center gap-x-6">
-                        <a href="{{ route('guru.edit', $teacher->NIP) }}" class="flex justify-center items-start text-sm font-medium text-blue-800">
+                        <a href="{{ route('guru.edit', $teacher->nip) }}" class="flex justify-center items-start text-sm font-medium text-blue-800">
                             <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-edit text-blue-800"></i></div>
                             <span>Ubah</span>
                         </a>
@@ -67,7 +67,7 @@
                     </div>
                 </td>
             </tr>
-            <x-modal :id="$id" route="{{ route('guru.destroy', $teacher->NIP) }}">
+            <x-modal :id="$id" route="{{ route('guru.destroy', $teacher->nip) }}">
                 <x-slot:modalTitle>Hapus Data</x-slot:modalTitle>
                 Apakah Anda yakin ingin menghapus data guru {{ $teacher->nama_guru }}? Semua data terkait guru tersebut akan permanen dihapus. Aksi ini tidak bisa dibatalkan ketika data telah terhapus.
             </x-modal>

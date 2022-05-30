@@ -26,19 +26,19 @@ class GuruController extends Controller
         }
 
         if ($searchTeacher) {
-            $classQuery = $teacherQuery->where(function ($query) use ($searchTeacher) {
-                $query->orWhere('nip', 'like', "%$searchTeacher%")
-                    ->orWhere('nama_guru', 'like', "%$searchTeacher%")
-                    ->orWhere('ket_guru', 'like', "%$searchTeacher%");
-            });
+            $teacherQuery
+                ->select('nip', 'nama_guru', 'tbl_bidang_studis.nama_bidangStudi', 'gol_guru', 'ket_guru')
+                ->orWhere('nip', 'like', "%$searchTeacher%")
+                ->orWhere('nama_guru', 'like', "%$searchTeacher%")
+                ->orWhere('tbl_bidang_studis.nama_bidangStudi', 'like', "%$searchTeacher%")
+                ->orWhere('gol_guru', 'like', "%$searchTeacher%")
+                ->orWhere('ket_guru', 'like', "%$searchTeacher%");
         }
 
         $teachers = $teacherQuery
-            ->select('NIP', 'nama_guru', 'tbl_bidang_studis.nama_bidangStudi', 'gol_guru', 'ket_guru')
+            ->select('nip', 'nama_guru', 'tbl_bidang_studis.nama_bidangStudi', 'gol_guru', 'ket_guru')
             ->join('tbl_bidang_studis', 'tbl_bidang_studis.id', '=', 'tbl_gurus.id_bidangStudi')
             ->paginate(10);
-
-        // $teachers = $teacherQuery->latest()->paginate(10);
 
         return view('pages.dashboard.data-master.guru.index', compact('teachers', 'sortColumn', 'sortDirection', 'searchTeacher'));
     }
@@ -63,7 +63,7 @@ class GuruController extends Controller
     public function store(GuruRequest $request)
     {
         tbl_guru::create([
-            'NIP' => $request->nip,
+            'nip' => $request->nip,
             'nama_guru' => $request->nama_guru,
             'id_bidangStudi' => $request->bidang_studi,
             'gol_guru' => $request->golongan_guru,

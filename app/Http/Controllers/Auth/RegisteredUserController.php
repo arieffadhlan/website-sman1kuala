@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\tbl_akun;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -34,15 +35,19 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'nama' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'foto' => ['required', 'string', 'max:255'],
+            'role' => ['required', 'string'],
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
+        $user = tbl_akun::create([
+            'nama' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'foto' => $request->foto,
+            'role' => $request->role,
         ]);
 
         event(new Registered($user));

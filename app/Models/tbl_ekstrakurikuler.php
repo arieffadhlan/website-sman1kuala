@@ -5,7 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class tbl_eskul extends Model
+class tbl_ekstrakurikuler extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nama_ekstrakurikuler',
+        'ikon'
+    ];
 }

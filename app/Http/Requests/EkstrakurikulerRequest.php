@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules\Password;
 
-class AkunRequest extends FormRequest
+class EkstrakurikulerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,11 +24,8 @@ class AkunRequest extends FormRequest
     public function rules()
     {
         return [
-            'nama' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:tbl_akuns'],
-            'password' => ['required', 'confirmed', Password::defaults()],
-            'foto' => ['string', 'max:255'],
-            // 'role' => ['required', 'string'],
+            'nama_ekstrakurikuler' => ['required', 'string'],
+            'ikon' => ['required'],
         ];
     }
 }

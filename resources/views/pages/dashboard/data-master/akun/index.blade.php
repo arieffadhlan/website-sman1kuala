@@ -2,11 +2,13 @@
     <x-alert></x-alert>
     <h1 class="mb-7 font-medium text-lg text-primary">Data Akun</h1>
     <div class="flex flex-wrap justify-between gap-4 mb-7 lg:gap-0">
-        <div>
-            <a href="{{ route('akun.create') }}" class="flex justify-center items-center px-5 py-2 border border-transparent rounded-lg text-center text-sm tracking-[-0.006em] bg-dashboard font-semibold text-white shadow-sm transition duration-250 ease-in-out hover:bg-[#1f604f] active:bg-[#387162] disabled:opacity-25">
-                Tambah Data Akun
-            </a>
-        </div>
+        @if (Auth::user()->role == 'Superadmin')
+            <div>
+                <a href="{{ route('akun.create') }}" class="flex justify-center items-center px-5 py-2 border border-transparent rounded-lg text-center text-sm tracking-[-0.006em] bg-dashboard font-semibold text-white shadow-sm transition duration-250 ease-in-out hover:bg-[#1f604f] active:bg-[#387162] disabled:opacity-25">
+                    Tambah Data Akun
+                </a>
+            </div>
+        @endif
         <form action="{{ route('akun', request()->query()) }}">
             <div class="flex justify-end h-10">
                 <input type="text" name="searchAccount" value="{{ $searchAccount }}" class="placeholder:text-gray-400/60 form-control px-3 py-1.5 m-0 border-y border-l border-gray-400/60 rounded-l-lg bg-clip-padding text-base font-normal bg-white text-primary shadow-sm transition ease-in-out focus:ring-0 focus:!border-dashboard focus:bg-white focus:outline-none" id="datatableInput" placeholder="Cari..." aria-label="Search" aria-describedby="dataTableSearchButton">
@@ -23,33 +25,41 @@
         <x-slot:tableColumnHeaders>
             <x-dashboard.table-column-header table-name="akun" column-name="name" :sort-column="$sortColumn" :sort-direction="$sortDirection">Nama</x-dashboard.table-column-header>
             <x-dashboard.table-column-header table-name="akun" column-name="email" :sort-column="$sortColumn" :sort-direction="$sortDirection">Email</x-dashboard.table-column-header>
-            <x-dashboard.table-column-header table-name="akun" column-name="aksi" :sort-column="$sortColumn" :sort-direction="$sortDirection">Aksi</x-dashboard.table-column-header>
+            <x-dashboard.table-column-header table-name="akun" column-name="role" :sort-column="$sortColumn" :sort-direction="$sortDirection">Role</x-dashboard.table-column-header>
+            @if (Auth::user()->role == 'Superadmin')
+                <x-dashboard.table-column-header table-name="akun" column-name="aksi" :sort-column="$sortColumn" :sort-direction="$sortDirection">Aksi</x-dashboard.table-column-header>
+            @endif
         </x-slot:tableColumnHeaders>
         
         @foreach($accounts as $account)
             <tr>
                 <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $account->name }}</div>
+                    <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $account->nama }}</div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                     <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $account->email }}</div>
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex justify-center items-center gap-x-6">
-                        <a href="{{ route('akun.edit', $account->id) }}" class="flex justify-center items-start text-sm font-medium text-blue-800">
-                            <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-edit text-blue-800"></i></div>
-                            <span>Ubah</span>
-                        </a>
-                        <button type="button" class="openModal{{ $account->id }} flex justify-center items-start text-sm font-medium text-red-500">
-                            <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-trash text-red-500"></i></div>
-                            <span>Hapus</span>
-                        </button>
-                    </div>
+                <td class="flex justify-center px-6 py-4 whitespace-nowrap">
+                    <span class="inline-flex justify-center items-start px-3 py-1 text-sm font-medium rounded-full {{ $account->role == 'Admin' ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800' }}">{{ $account->role }}</span>
                 </td>
+                @if (Auth::user()->role == 'Superadmin')
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex justify-center items-center gap-x-6">
+                            <a href="{{ route('akun.edit', $account->id) }}" class="flex justify-center items-start text-sm font-medium text-blue-800">
+                                <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-edit text-blue-800"></i></div>
+                                <span>Ubah</span>
+                            </a>
+                            <button type="button" class="openModal{{ $account->id }} flex justify-center items-start text-sm font-medium text-red-500">
+                                <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-trash text-red-500"></i></div>
+                                <span>Hapus</span>
+                            </button>
+                        </div>
+                    </td>
+                @endif
             </tr>
             <x-modal :id="$account->id" route="{{ route('akun.destroy', $account->id) }}">
                 <x-slot:modalTitle>Hapus Data</x-slot:modalTitle>
-                Apakah Anda yakin ingin menghapus data akun {{ $account->name }}? Semua data terkait akun tersebut akan permanen dihapus. Aksi ini tidak bisa dibatalkan ketika data telah terhapus.
+                Apakah Anda yakin ingin menghapus data akun {{ $account->nama }}? Semua data terkait akun tersebut akan permanen dihapus. Aksi ini tidak bisa dibatalkan ketika data telah terhapus.
             </x-modal>
         @endforeach
 

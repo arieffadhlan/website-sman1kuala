@@ -3,12 +3,12 @@
     <x-dashboard.form-card>
         <x-slot:cardTitle>Form Edit Data Guru</x-slot:cardTitle>
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
-        <form method="POST" action="{{ route('guru.update', $teacher->NIP) }}">
+        <form method="POST" action="{{ route('guru.update', $teacher->nip) }}">
             @csrf
             @method('put')
             <div>
                 <x-label for="nip" :value="__('NIP')" />
-                <x-input type="text" name="nip" id="nip" class="placeholder:!font-normal placeholder:text-[#252f3f66] block mt-1 w-full" :value="old('nip', $teacher->NIP)" placeholder="Masukkan NIP" autofocus />
+                <x-input type="text" name="nip" id="nip" class="placeholder:!font-normal placeholder:text-[#252f3f66] block mt-1 w-full" :value="old('nip', $teacher->nip)" placeholder="Masukkan NIP" autofocus />
             </div>
             <div class="mt-5">
                 <x-label for="nama_guru" :value="__('Nama Guru')" />

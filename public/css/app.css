@@ -1981,6 +1981,10 @@ input[type=file]::file-selector-button:hover {
 .text-gray-500\/70 {
   color: rgb(107 114 128 / 0.7);
 }
+.text-blue-600 {
+  --tw-text-opacity: 1;
+  color: rgb(28 100 242 / var(--tw-text-opacity));
+}
 .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;

@@ -1,8 +1,9 @@
 <x-app-layout>
+    <x-alert></x-alert>
     <h1 class="mb-7 font-medium text-lg text-primary">Data Guru</h1>
     <div class="flex flex-wrap justify-between gap-4 mb-7 lg:gap-0">
         <div>
-            <a href="#" class="block px-5 py-2 border border-transparent rounded-lg text-center text-sm tracking-[-0.006em] bg-dashboard font-semibold text-white transition duration-250 ease-in-out hover:bg-[#1f604f] active:bg-[#387162] disabled:opacity-25">
+            <a href="{{ route('guru.create') }}" class="block px-5 py-2 border border-transparent rounded-lg text-center text-sm tracking-[-0.006em] bg-dashboard font-semibold text-white transition duration-250 ease-in-out hover:bg-[#1f604f] active:bg-[#387162] disabled:opacity-25">
                 Tambah Data Guru
             </a>
         </div>
@@ -22,23 +23,54 @@
     <x-dashboard.datatable>
         <x-slot:tableColumnHeaders>
             {{-- <x-dashboard.table-column-header :columnId="0" column-name="NIP" :sort-column="$sortColumn" :sort-direction="$sortDirection">NIP</x-dashboard.table-column-header> --}}
-            <x-dashboard.table-column-header table-name="guru" column-name="NIP" :sort-column="$sortColumn" :sort-direction="$sortDirection">NIP</x-dashboard.table-column-header>
+            <x-dashboard.table-column-header table-name="guru" column-name="nip" :sort-column="$sortColumn" :sort-direction="$sortDirection">NIP</x-dashboard.table-column-header>
             <x-dashboard.table-column-header table-name="guru" column-name="nama_guru" :sort-column="$sortColumn" :sort-direction="$sortDirection">Nama</x-dashboard.table-column-header>
+            <x-dashboard.table-column-header table-name="guru" column-name="id_bidangStudi" :sort-column="$sortColumn" :sort-direction="$sortDirection">Bidang Studi</x-dashboard.table-column-header>
+            <x-dashboard.table-column-header table-name="guru" column-name="gol_guru" :sort-column="$sortColumn" :sort-direction="$sortDirection">Golongan</x-dashboard.table-column-header>
             <x-dashboard.table-column-header table-name="guru" column-name="ket_guru" :sort-column="$sortColumn" :sort-direction="$sortDirection">Keterangan</x-dashboard.table-column-header>
+            <x-dashboard.table-column-header table-name="kelas" column-name="aksi" :sort-column="$sortColumn" :sort-direction="$sortDirection">Aksi</x-dashboard.table-column-header>
         </x-slot:tableColumnHeaders>
         
+        @php
+            $id = 0;
+        @endphp
         @foreach($teachers as $teacher)
+            @php
+                $id++;
+            @endphp
             <tr>
                 <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $teacher->NIP }}</div>
+                    <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $teacher->nip }}</div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                     <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $teacher->nama_guru }}</div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $teacher->nama_bidangStudi }}</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $teacher->gol_guru }}</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
                     <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $teacher->ket_guru }}</div>
                 </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex justify-center items-center gap-x-6">
+                        <a href="{{ route('guru.edit', $teacher->nip) }}" class="flex justify-center items-start text-sm font-medium text-blue-800">
+                            <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-edit text-blue-800"></i></div>
+                            <span>Ubah</span>
+                        </a>
+                        <button type="button" class="openModal{{ $id }} flex justify-center items-start text-sm font-medium text-red-500">
+                            <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-trash text-red-500"></i></div>
+                            <span>Hapus</span>
+                        </button>
+                    </div>
+                </td>
             </tr>
+            <x-modal :id="$id" route="{{ route('guru.destroy', $teacher->nip) }}">
+                <x-slot:modalTitle>Hapus Data</x-slot:modalTitle>
+                Apakah Anda yakin ingin menghapus data guru {{ $teacher->nama_guru }}? Semua data terkait guru tersebut akan permanen dihapus. Aksi ini tidak bisa dibatalkan ketika data telah terhapus.
+            </x-modal>
         @endforeach
 
         <x-slot:pagination>

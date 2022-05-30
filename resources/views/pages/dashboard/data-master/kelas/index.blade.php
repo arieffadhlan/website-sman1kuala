@@ -33,10 +33,10 @@
                     <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $class->nama }}</div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                    @if ($class->wali_kelas == null)
+                    @if ($class->nama_guru == null)
                         <div class="flex justify-center items-start text-sm text-gray-500">-</div>
                     @else
-                        <div class="flex justify-center items-start text-sm text-gray-500">{{ $class->wali_kelas }}</div>
+                        <div class="flex justify-center items-start text-sm text-gray-500">{{ $class->nama_guru }}</div>
                     @endif
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
@@ -52,7 +52,7 @@
                     </div>
                 </td>
             </tr>
-            <x-modal :id="$class->id">
+            <x-modal :id="$class->id" route="{{ route('kelas.destroy', $class->id) }}">
                 <x-slot:modalTitle>Hapus Data</x-slot:modalTitle>
                 Apakah Anda yakin ingin menghapus data kelas {{ $class->nama }}? Semua data terkait kelas tersebut akan permanen dihapus. Aksi ini tidak bisa dibatalkan ketika data telah terhapus.
             </x-modal>

@@ -16,7 +16,11 @@
                 <a href="#pablo" class="block text-white" onclick="openDropdown(event,'user-responsive-dropdown')">
                     <div class="flex items-center">
                         <span class="inline-flex items-center justify-center w-12 h-12 text-sm text-white rounded-full bg-white">
-							<img src="{{ asset('images/dashboard/admin.jpg') }}" class="w-full align-middle border-none rounded-full shadow-lg" alt="..." />
+                            @if (Auth::user()->foto != 'user.png')
+                                <img src="{{ asset('storage/images/akun/' . Auth::user()->foto) }}" class="w-full align-middle border-none rounded-full shadow-lg" alt="{{ Auth::user()->foto }}" />
+                            @else
+                                <img src="{{ asset('images/dashboard/user.png') }}" class="w-full align-middle border-none rounded-full shadow-lg" alt="{{ Auth::user()->nama }}" />
+                            @endif
 						</span>
                     </div>
                 </a>
@@ -75,20 +79,13 @@
                 # Akun
             </h6>
             <ul class="flex flex-col list-none md:flex-col md:min-w-full md:mb-4">
-                @foreach ($accountDataLinks as $linkName => $url)
-                    @foreach ($accountDataIcons as $linkNameWithIcon => $icon)
-                        @if ($linkName == $linkNameWithIcon)
-                            <li class="items-center">
-                                <x-sidebar-link :href="$url" :active="request()->routeIs(strtolower($linkName))" :icon="$icon">
-                                    {{ $linkName }}
-                                </x-sidebar-link>
-                            </li>
-                            @break 
-                        @endif
-                    @endforeach
-                @endforeach
                 <li class="items-center">
-                    <button type="button" class="openModal block py-3 text-sm font-medium text-primary/70 md:text-white/70">
+                    <x-sidebar-link href="{{ route('akun-saya') }}" :active="request()->routeIs('akun-saya')" icon="fas fa-user">
+                        Akun Saya
+                    </x-sidebar-link>
+                </li>
+                <li class="items-center">
+                    <button type="button" class="openModalLogout block py-3 text-sm font-medium text-primary/70 md:text-white/70">
                         <div class="inline-block mr-1"><i class="block mr-2 text-sm fa-fw fas fa-sign-out-alt text-primary/70 md:text-white/70"></i></div>
                         <span>Keluar</span>
                     </button>
@@ -99,7 +96,7 @@
 </nav>
 
 {{-- Modal Logout --}}
-<x-modal>
+<x-modal id="modalLogout">
     <x-slot:modalTitle>Keluar Dashboard</x-slot:modalTitle>
     Apakah Anda yakin ingin keluar dari dashboard?
 </x-modal>
@@ -114,11 +111,18 @@
                     @break
                 @endif
             @endforeach
+            @if (request()->routeIs('akun-saya'))                  
+                <h1 class="hidden text-xl font-semibold text-primary md:inline-block">Akun Saya</h1>
+            @endif
             <ul class="flex-col items-center hidden list-none md:flex-row md:flex">
                 <a class="block text-white" href="#pablo" onclick="openDropdown(event,'user-dropdown')">
                     <div class="flex items-center">
                         <span class="inline-flex items-center justify-center w-12 h-12 text-sm text-white rounded-full bg-white">
-							<img src="{{ asset('images/dashboard/admin.jpg') }}" class="w-full align-middle border-none rounded-full shadow-lg" alt="..." />
+                            @if (Auth::user()->foto != 'user.png')
+                                <img src="{{ asset('storage/images/akun/' . Auth::user()->foto) }}" class="w-full align-middle border-none rounded-full shadow-lg" alt="{{ Auth::user()->foto }}" />
+                            @else
+                                <img src="{{ asset('images/dashboard/user.png') }}" class="w-full align-middle border-none rounded-full shadow-lg" alt="{{ Auth::user()->nama }}" />
+                            @endif
 						</span>
                     </div>
                 </a>

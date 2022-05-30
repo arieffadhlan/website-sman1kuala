@@ -6,12 +6,12 @@
         <form method="POST" action="{{ route('siswa.store') }}">
             @csrf
             <div class="mt-5">
-                <x-label for="NIS" :value="__('NIS')" />
-                <x-input type="number" name="NIS" id="NIS" class="placeholder:!font-normal placeholder:text-[#252f3f66] block mt-1 w-full" :value="old('NIS')" placeholder="Masukkan NIS Siswa" autofocus />
+                <x-label for="nis" :value="__('NIS')" />
+                <x-input type="number" name="nis" id="nis" class="placeholder:!font-normal placeholder:text-[#252f3f66] block mt-1 w-full" :value="old('nis')" placeholder="Masukkan NIS Siswa" autofocus />
             </div>
             <div class="mt-5">
-                <x-label for="NISN" :value="__('NISN')" />
-                <x-input type="number" name="NISN" id="NISN" class="placeholder:!font-normal placeholder:text-[#252f3f66] block mt-1 w-full" :value="old('NISN')" placeholder="Masukkan NISN Siswa" autofocus />
+                <x-label for="nisn" :value="__('NISN')" />
+                <x-input type="number" name="nisn" id="nisn" class="placeholder:!font-normal placeholder:text-[#252f3f66] block mt-1 w-full" :value="old('nisn')" placeholder="Masukkan NISN Siswa" autofocus />
             </div>
             <div class="mt-5">
                 <x-label for="nama_siswa" :value="__('Nama Siswa')" />
@@ -51,7 +51,14 @@
             </div>
             <div class="mt-5 mb-7">
                 <x-label for="ket_siswa" :value="__('Keterangan Siswa')" />
-                <x-input type="text" name="ket_siswa" id="ket_siswa" class="placeholder:!font-normal placeholder:text-[#252f3f66] block mt-1 w-full" :value="old('ket_siswa')" placeholder="Masukkan Keterangan Siswa" autofocus />
+                <select name="ket_siswa" id="ket_siswa" class="mt-1 w-full h-10 rounded-lg shadow-sm transition duration-[0.2s] ease-[cubic-bezier(.4,0,1,1)] border-gray-300 focus:border-secondary focus:ring focus:ring-secondary focus:ring-opacity-20">
+                    <option selected disabled class="bg-gray-200 text-gray-400">Pilih Keterangan Siswa</option>
+                    <option value="Aktif">Aktif</option>
+                    <option value="Tidak Aktif">Tidak Aktif</option>
+                    <option value="Mengundurkan Diri">Mengundurkan Diri</option>
+                    <option value="Pindah">Pindah</option>
+                    <option value="Dikeluarkan">Dikeluarkan</option>
+                </select>
             </div>
             <button type="submit" class="inline-block px-5 py-2 w-full h-11 border border-transparent rounded-lg text-center text-base tracking-[-0.011em] bg-dashboard font-semibold text-white transition duration-250 ease-in-out hover:bg-[#1f604f] active:bg-[#387162] disabled:opacity-25">
                 Kirim

@@ -9,11 +9,11 @@ class tbl_siswa extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'NIS';
+    protected $primaryKey = 'nis';
 
     protected $fillable = [
-        'NIS',
-        'NISN',
+        'nis',
+        'nisn',
         'nama_siswa',
         'jk_siswa',
         'agama_siswa',

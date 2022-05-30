@@ -27,16 +27,16 @@ class KelasController extends Controller
         }
 
         if ($searchClass) {
-            $classQuery = $classQuery->where(function ($query) use ($searchClass) {
-                $query->orWhere('nama', 'like', "%$searchClass%")
-                    ->orWhere('wali_kelas', 'like', "%$searchClass%");
-            });
+            $classQuery
+                ->select('tbl_kelas.id', 'nama', 'nama_guru')
+                ->orWhere('nama', 'like', "%$searchClass%")
+                ->orWhere('tbl_gurus.nama_guru', 'like', "%$searchClass%");
         }
 
-        // $classes = $classQuery->join('tbl_gurus', 'tbl_gurus.NIP', '=', 'tbl_kelas.wali_kelas')
-        //     ->get();
-        // dd($classQuery);
-        $classes = $classQuery->latest()->paginate(10);
+        $classes = $classQuery
+            ->select('tbl_kelas.id', 'nama', 'nama_guru')
+            ->leftJoin('tbl_gurus', 'tbl_gurus.nip', '=', 'tbl_kelas.wali_kelas')
+            ->paginate(10);
 
         return view('pages.dashboard.data-master.kelas.index', compact('classes', 'sortColumn', 'sortDirection', 'searchClass'));
     }

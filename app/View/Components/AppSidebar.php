@@ -31,13 +31,9 @@ class AppSidebar extends Component
             'Pegawai' => '/data-master/pegawai',
             'Prestasi' => '/data-master/prestasi',
             'Fasilitas' => '/data-master/fasilitas',
-            'Ekstrakulikuler' => '/data-master/esktrakulikuler',
+            'Ekstrakurikuler' => '/data-master/ekstrakurikuler',
             'Berita' => '/data-master/berita',
             'Akun' => '/data-master/akun'
-        ];
-
-        $accountDataLinks = [
-            'Edit Akun' => 'akun/edit-akun',
         ];
 
         $masterDataIcons = [
@@ -48,15 +44,11 @@ class AppSidebar extends Component
             'Pegawai' => 'fas fa-user-tie',
             'Prestasi' => 'fas fa-star',
             'Fasilitas' => 'fas fa-building',
-            'Ekstrakulikuler' => 'fas fa-futbol',
+            'Ekstrakurikuler' => 'fas fa-futbol',
             'Berita' => 'fas fa-newspaper',
             'Akun' => 'fas fa-users'
         ];
 
-        $accountDataIcons = [
-            'Edit Akun' => 'fas fa-edit',
-        ];
-
-        return view('layouts.app-sidebar', compact('masterDataLinks', 'accountDataLinks', 'masterDataIcons', 'accountDataIcons'));
+        return view('layouts.app-sidebar', compact('masterDataLinks', 'masterDataIcons'));
     }
 }

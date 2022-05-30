@@ -1,5 +1,5 @@
 <x-app-layout>
-    <h1 class="mb-7 font-medium text-lg text-primary">Tambah Data Kelas</h1>
+    <h1 class="mb-7 font-semibold text-2xl text-primary">Tambah Data Kelas</h1>
     <x-dashboard.form-card>
         <x-slot:cardTitle>Form Tambah Data Kelas</x-slot:cardTitle>
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
@@ -15,8 +15,8 @@
                     <option selected disabled class="bg-gray-200 text-gray-400">Pilih wali kelas</option>
                     @if ($teachers->isNotEmpty())
                         @foreach ($teachers as $teacher)
-                            <option value="{{ $teacher->NIP }}"
-                                {{ old('wali_kelas') == $teacher->NIP ? 'selected' : '' }}>
+                            <option value="{{ $teacher->nip }}"
+                                {{ old('wali_kelas') == $teacher->nip ? 'selected' : '' }}>
                                 {{ $teacher->nama_guru }}
                             </option>
                         @endforeach

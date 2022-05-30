@@ -22,7 +22,7 @@ class SiswaController extends Controller
 
         if ($searchStudent) {
             $studentQuery = $studentQuery->where(function ($query) use ($searchStudent) {
-                $query->orWhere('NIS', 'like', "%$searchStudent%")
+                $query->orWhere('nis', 'like', "%$searchStudent%")
                     ->orWhere('nama_siswa', 'like', "%$searchStudent%")
                     ->orWhere('jk_siswa', 'like', "%$searchStudent%")
                     ->orWhere('agama_siswa', 'like', "%$searchStudent%");
@@ -30,7 +30,7 @@ class SiswaController extends Controller
         }
 
         $students = $studentQuery
-        ->select('tbl_kelas.nama', 'nama_siswa', 'jk_siswa', 'agama_siswa', 'NIS')
+        ->select('tbl_kelas.nama', 'nama_siswa', 'jk_siswa', 'agama_siswa', 'nis')
         ->join('tbl_kelas', 'tbl_kelas.id', '=', 'tbl_siswas.id_kelas')
         ->paginate(10);
         
@@ -46,8 +46,8 @@ class SiswaController extends Controller
     public function store(SiswaRequest $request)
     {
         tbl_siswa::create([
-            'NIS' => $request->NIS,
-            'NISN' => $request->NISN,
+            'nis' => $request->nis,
+            'nisn' => $request->nisn,
             'nama_siswa' => $request->nama_siswa,
             'jk_siswa' => $request->jk_siswa,
             'agama_siswa' => $request->agama_siswa,
@@ -58,25 +58,33 @@ class SiswaController extends Controller
         return redirect(route('siswa'))->with('success', 'Data Siswa telah berhasil ditambahkan!');
     }
 
-    public function edit($NIS)
+    public function edit($nis)
     {
-        $students = tbl_siswa::where('NIS', $NIS)->get();
+        $students = tbl_siswa::where('nis', $nis)->get();
         $classes = tbl_kelas::get();
-        // dd($students->jk_siswa);
-
-        // if ($students->jk_siswa == 'P') {
-        //     $jk_siswa = "Perempuan";
-        // }
-        // elseif ($students->jk_siswa == 'L') {
-        //     $jk_siswa = "Laki-Laki";
-        // }
 
         return view('pages.dashboard.data-master.siswa.edit', compact('students', 'classes'));
     }
 
-    public function destroy($NIS)
+    public function update(SiswaRequest $request, $nis)
     {
-        $student = tbl_siswa::find($NIS);
+        $siswa = tbl_siswa::where('nis', $nis)->first();
+        $siswa->update([
+            'nis' => $request->nis,
+            'nisn' => $request->nisn,
+            'nama_siswa' => $request->nama_siswa,
+            'jk_siswa' => $request->jk_siswa,
+            'agama_siswa' => $request->agama_siswa,
+            'ket_siswa' => $request->ket_siswa,
+            'id_kelas' => $request->id_kelas
+        ]);
+
+        return redirect(route('siswa'))->with('success', 'Data Siswa telah berhasil di-update!');
+    }
+
+    public function destroy($nis)
+    {
+        $student = tbl_siswa::find($nis);
         $student->delete();
 
         return redirect(route('siswa'))->with('success', 'Data siswa telah berhasil dihapus!');

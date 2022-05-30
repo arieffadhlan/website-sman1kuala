@@ -14,10 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tbl_akuns', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('username');
+            $table->tinyIncrements('id');
+            $table->string('nama');
+            $table->string('email')->unique();
             $table->string('password');
-            $table->enum('level', ['superadmin','admin'])->nullable();
+            $table->string('foto');
+            $table->enum('role', ['superadmin', 'admin'])->nullable();
             $table->timestamps();
         });
     }

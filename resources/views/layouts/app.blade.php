@@ -21,7 +21,7 @@
     <body class="font-sans antialiased bg-gray-100">
         <div class="min-h-screen">
             <x-app-sidebar></x-app-sidebar>
-            <main class="relative px-4 pt-12 md:px-14">
+            <main class="relative px-9 pt-12 pb-8 md:px-14">
                 {{ $slot }}
             </main>
         </div>

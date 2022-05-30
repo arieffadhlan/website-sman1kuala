@@ -1,4 +1,4 @@
-<div class="fixed z-50 inset-0 invisible overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true" @if ($modalTitle == 'Hapus Data') id="modalDelete{{ $id }}" @elseif ($modalTitle == 'Keluar Dashboard') id="modal" @else id="modal" @endif>
+<div class="fixed z-50 inset-0 invisible overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true" @if ($modalTitle == 'Hapus Data') id="modalDelete{{ $id }}" @elseif ($modalTitle == 'Keluar Dashboard') id="modalLogout" @else id="modal" @endif>
     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition" aria-hidden="true"></div>
             <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">​</span>
@@ -33,7 +33,7 @@
                             @csrf
                     @endif
                         <div class="flex flex-col-reverse gap-y-3 sm:flex-row sm:justify-between sm:gap-y-0">
-                            <button type="button" class="@if ($modalTitle == 'Hapus Data') closeModal{{ $id }} @else closeModal @endif inline-flex justify-center px-5 py-2 border border-transparent rounded-lg text-center text-sm tracking-[-0.006em] bg-gray-300 font-semibold text-primary transition duration-250 ease-in-out hover:ring-2 hover:ring-offset-2 hover:ring-gray-300 hover:bg-gray-400/50 active:bg-gray-500/50 disabled:opacity-25">
+                            <button type="button" class="@if ($modalTitle == 'Hapus Data') closeModal{{ $id }}  @elseif ($modalTitle == 'Keluar Dashboard') closeModalLogout @else closeModal @endif inline-flex justify-center px-5 py-2 border border-transparent rounded-lg text-center text-sm tracking-[-0.006em] bg-gray-300 font-semibold text-primary transition duration-250 ease-in-out hover:ring-2 hover:ring-offset-2 hover:ring-gray-300 hover:bg-gray-400/50 active:bg-gray-500/50 disabled:opacity-25">
                                 Batal
                             </button>
                             <button type="submit" class="inline-flex justify-center px-5 py-2 border border-transparent rounded-lg text-center text-sm tracking-[-0.006em] bg-red-600 font-semibold text-white transition duration-250 ease-in-out hover:ring-2 hover:ring-offset-2 hover:ring-red-500 hover:bg-red-700 active:bg-red-800 disabled:opacity-25">
@@ -47,7 +47,7 @@
                             Batal
                         </button>
                         <button type="submit" class="inline-flex justify-center px-5 py-2 border border-transparent rounded-lg text-center text-sm tracking-[-0.006em] bg-red-600 font-semibold text-white transition duration-250 ease-in-out hover:ring-2 hover:ring-offset-2 hover:ring-red-500 hover:bg-red-700 active:bg-red-800 disabled:opacity-25">
-                            Yakin
+                            Kirim
                         </button>
                     </div>
                 @endif
@@ -68,6 +68,19 @@
                 });
                 $(`${closeModalId}`).on('click', function(e){
                     $(`${modalDeleteId}`).addClass('invisible');
+                });
+            });
+        </script>
+    @endpush
+@elseif ($modalTitle == 'Keluar Dashboard')
+    @push('scripts')
+        <script>
+            $(document).ready(function () {
+                $('.openModalLogout').on('click', function(e){
+                    $('#modalLogout').removeClass('invisible');
+                });
+                $('.closeModalLogout').on('click', function(e){
+                    $('#modalLogout').addClass('invisible');
                 });
             });
         </script>

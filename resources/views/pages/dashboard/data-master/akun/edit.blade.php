@@ -1,5 +1,5 @@
 <x-app-layout>
-    <h1 class="mb-7 font-medium text-lg text-primary">Edit Data Akun</h1>
+    <h1 class="mb-7 font-semibold text-2xl text-primary">Edit Data Akun</h1>
     <x-dashboard.form-card>
         <x-slot:cardTitle>Form Edit Data Akun</x-slot:cardTitle>
         <x-auth-validation-errors class="mb-4" :errors="$errors" />

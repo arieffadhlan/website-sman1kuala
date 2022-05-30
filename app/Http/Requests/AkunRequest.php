@@ -26,10 +26,10 @@ class AkunRequest extends FormRequest
     {
         return [
             'nama' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:tbl_akuns'],
+            'email' => ['required', 'string', 'email:rfc,dns', 'max:255', 'unique:tbl_akuns'],
             'password' => ['required', 'confirmed', Password::defaults()],
-            'foto' => ['string', 'max:255'],
-            // 'role' => ['required', 'string'],
+            'foto' => ['image', 'max:2048'],
+            'role' => ['string']
         ];
     }
 }

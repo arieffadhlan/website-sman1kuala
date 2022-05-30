@@ -36,10 +36,6 @@ class AppSidebar extends Component
             'Akun' => '/data-master/akun'
         ];
 
-        $accountDataLinks = [
-            'Edit Akun' => 'akun/edit-akun',
-        ];
-
         $masterDataIcons = [
             'Dashboard' => 'fas fa-chart-area',
             'Kelas' => 'fas fa-school',
@@ -53,10 +49,6 @@ class AppSidebar extends Component
             'Akun' => 'fas fa-users'
         ];
 
-        $accountDataIcons = [
-            'Edit Akun' => 'fas fa-edit',
-        ];
-
-        return view('layouts.app-sidebar', compact('masterDataLinks', 'accountDataLinks', 'masterDataIcons', 'accountDataIcons'));
+        return view('layouts.app-sidebar', compact('masterDataLinks', 'masterDataIcons'));
     }
 }

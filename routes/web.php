@@ -6,6 +6,7 @@ use App\Http\Controllers\EkstrakurikulerController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,11 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('dashboard', DashboardController::class)->name('dashboard');
     Route::get('/data-master/siswa', [SiswaController::class, 'index'])->name('siswa');
+
+    Route::controller(ProfileController::class)->group(function () {
+        Route::get('akun-saya', 'index')->name('akun-saya');
+        Route::put('akun-saya', 'update')->name('akun-saya.update');
+    });
 
     Route::controller(KelasController::class)->prefix('data-master/')->group(function () {
         Route::get('kelas', 'index')->name('kelas');

@@ -26,9 +26,6 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::view('dashboard', 'pages.dashboard.index')->name('dashboard');
-    Route::get('/data-master/kelas', [ClassController::class, 'index'])->name('kelas');
-    Route::get('/data-master/guru', [TeacherController::class, 'index'])->name('guru');
-    Route::get('/data-master/siswa', [SiswaController::class, 'index'])->name('siswa');
 
     Route::controller(KelasController::class)->prefix('data-master/')->group(function () {
         Route::get('kelas', 'index')->name('kelas');
@@ -46,5 +43,14 @@ Route::middleware('auth')->group(function () {
         Route::get('guru/{id}/edit', 'edit')->name('guru.edit');
         Route::put('guru/{id}', 'update')->name('guru.update');
         Route::delete('guru/{id}', 'destroy')->name('guru.destroy');
+    });
+
+    Route::controller(SiswaController::class)->prefix('data-master/')->group(function () {
+        Route::get('siswa', 'index')->name('siswa');
+        Route::get('siswa/create', 'create')->name('siswa.create');
+        Route::post('siswa', 'store')->name('siswa.store');
+        Route::get('siswa/{NIS}/edit', 'edit')->name('siswa.edit');
+        // Route::put('siswa/{id}', 'update')->name('siswa.update');
+        Route::delete('siswa/{NIS}', 'destroy')->name('siswa.destroy');
     });
 });

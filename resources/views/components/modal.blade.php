@@ -54,7 +54,7 @@
                         <button type="button" class="closeModal inline-flex justify-center px-5 py-2 border border-transparent rounded-lg text-center text-sm tracking-[-0.006em] bg-gray-300 font-semibold text-primary transition duration-250 ease-in-out hover:ring-2 hover:ring-offset-2 hover:ring-gray-300 hover:bg-gray-400/50 active:bg-gray-500/50 disabled:opacity-25">
                             Batal
                         </button>
-                        <button type="submit" class="inline-flex justify-center px-5 py-2 border border-transparent rounded-lg text-center text-sm tracking-[-0.006em] bg-red-600 font-semibold text-white transition duration-250 ease-in-out hover:ring-2 hover:ring-offset-2 hover:ring-red-500 hover:bg-red-700 active:bg-red-800 disabled:opacity-25">
+                        <button type="submit" class="inline-flex justify-center px-5 py-2 border border-transparent rounded-lg text-center text-sm tracking-[-0.006em] bg-blue-600 font-semibold text-white transition duration-250 ease-in-out hover:ring-2 hover:ring-offset-2 hover:ring-blue-500 hover:bg-blue-700 active:bg-blue-800 disabled:opacity-25">
                             Kirim
                         </button>
                     </div>

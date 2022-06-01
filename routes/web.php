@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\FasilitasController;
+use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\AkunController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EkstrakurikulerController;
@@ -81,5 +83,23 @@ Route::middleware('auth')->group(function () {
         Route::get('siswa/{nis}/edit', 'edit')->name('siswa.edit');
         Route::put('siswa/{nis}', 'update')->name('siswa.update');
         Route::delete('siswa/{nis}', 'destroy')->name('siswa.destroy');
+    });
+
+    Route::controller(FasilitasController::class)->prefix('data-master/')->group(function () {
+        Route::get('fasilitas', 'index')->name('fasilitas');
+        Route::get('fasilitas/create', 'create')->name('fasilitas.create');
+        Route::post('fasilitas', 'store')->name('fasilitas.store');
+        Route::get('fasilitas/{id}/edit', 'edit')->name('fasilitas.edit');
+        Route::put('fasilitas/{id}', 'update')->name('fasilitas.update');
+        Route::delete('fasilitas/{id}', 'destroy')->name('fasilitas.destroy');
+    });
+
+    Route::controller(PegawaiController::class)->prefix('data-master/')->group(function () {
+        Route::get('pegawai', 'index')->name('pegawai');
+        Route::get('pegawai/create', 'create')->name('pegawai.create');
+        Route::post('pegawai', 'store')->name('pegawai.store');
+        Route::get('pegawai/{id}/edit', 'edit')->name('pegawai.edit');
+        Route::put('pegawai/{id}', 'update')->name('pegawai.update');
+        Route::delete('pegawai/{id}', 'destroy')->name('pegawai.destroy');
     });
 });

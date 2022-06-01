@@ -14,14 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tbl_siswas', function (Blueprint $table) {
-            $table->unsignedBigInteger('id');
-            $table->Biginteger('NIS', 5);
-            $table->unsignedBigInteger('NISN')->nullable();
-            $table->text('nama_siswa', 225)->nullable();
-            $table->enum('jk_siswa', ['L','P'])->nullable();
-            $table->enum('agama_siswa', ['Islam','Kristen','Hindu','Buddha'])->nullable();
-            $table->text('ket_siswa')->nullable();
-            $table->unsignedBigInteger('id_kelas')->nullable();
+            $table->char('NIS', 5);
+            $table->char('NISN', 10);
+            $table->string('nama_siswa', 225);
+            $table->enum('jk_siswa', ['L','P']);
+            $table->enum('agama_siswa', ['Islam','Kristen','Hindu','Buddha']);
+            $table->enum('ket_siswa', ['Aktif','Tidak Aktif','Mengundurkan Diri','Pindah','Dikeluarkan']);
+            $table->tinyInteger('id_kelas', 3);
             $table->timestamps();
 
 

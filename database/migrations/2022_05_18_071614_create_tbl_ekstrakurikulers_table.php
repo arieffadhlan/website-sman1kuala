@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tbl_ekstrakurikulers', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->tinyInteger('id', 3);
             $table->string('nama_eskul', 225)->nullable();
             $table->string('foto_eskul', 225)->nullable();
             $table->text('deskripsi')->nullable();

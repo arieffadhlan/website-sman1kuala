@@ -14,12 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tbl_gurus', function (Blueprint $table) {
-            $table->unsignedBigInteger('id');
-            $table->Biginteger('NIP', 16);
-            $table->text('nama_guru', 225)->nullable();
-            $table->unsignedBigInteger('id_bidangStudi')->nullable();
-            $table->text('gol_guru', 225)->nullable();
-            $table->text('ket_guru', 225)->nullable();
+            $table->char('NIP', 18);
+            $table->string('nama_guru', 225)->nullable();
+            $table->tinyInteger('id_bidangStudi')->nullable();
+            $table->string('gol_guru', 5)->nullable();
+            $table->enum('ket_guru', ['PNS', 'GTT APBD', 'GTT Komite'])->nullable();
             $table->string('foto_guru', 225)->nullable();
             $table->timestamps();
 

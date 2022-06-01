@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tbl_fasilitas', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->tinyInteger('id', 20);
             $table->string('nama_fasilitas', 225)->nullable();
-            $table->string('foto_pegawai')->nullable();
+            $table->string('foto_pegawai', 225)->nullable();
             $table->text('deskripsi')->nullable();
             $table->timestamps();
         });

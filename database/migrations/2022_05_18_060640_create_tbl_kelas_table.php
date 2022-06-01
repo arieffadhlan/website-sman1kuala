@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tbl_kelas', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->text('nama', 225)->nullable();
-            $table->BigInteger('wali_kelas')->nullable();
+            $table->tinyInteger('id');
+            $table->string('nama', 225)->nullable();
+            $table->string('wali_kelas', 20)->nullable();
             $table->timestamps();
 
             $table->foreign('wali_kelas')

@@ -10,11 +10,11 @@
                 <x-label for="nama" :value="__('Nama')" />
                 <x-input type="text" name="nama" id="nama" class="placeholder:!font-normal placeholder:text-[#252f3f66] block mt-1 w-full" :value="old('nama', $account['0']->nama)" placeholder="Masukkan nama" autofocus />
             </div>
-            <div class="mt-5 mb-7">
+            <div class="mt-5">
                 <x-label for="email" :value="__('Email')" />
                 <x-input type="email" name="email" id="email" class="placeholder:!font-normal placeholder:text-[#252f3f66] block mt-1 w-full" :value="old('email', $account['0']->email)" placeholder="Masukkan email" />
             </div>
-            <div class="mt-5 mb-7">
+            <div class="mt-5">
                 <x-label for="password" :value="__('Password')" />
                 <x-input type="password" name="password" id="password" class="placeholder:!font-normal placeholder:text-[#252f3f66] block mt-1 w-full" :value="old('password')" placeholder="Masukkan password" />
             </div>

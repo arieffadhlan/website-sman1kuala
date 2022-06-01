@@ -19,6 +19,9 @@ class DashboardController extends Controller
         $fieldsOfStudy = DB::table('tbl_bidang_studis')->count();
         $teachers = DB::table('tbl_gurus')->count();
         $students = DB::table('tbl_siswas')->count();
+        $staffs = DB::table('tbl_pegawais')->count();
+        $achievements = DB::table('tbl_prestasis')->count();
+        $facilities = DB::table('tbl_fasilitas')->count();
         $extracurriculars = DB::table('tbl_ekstrakurikulers')->count();
         $accounts = DB::table('tbl_akuns')->count();
 
@@ -27,6 +30,9 @@ class DashboardController extends Controller
             'fieldsOfStudy' => $fieldsOfStudy,
             'teachers' => $teachers,
             'students' => $students,
+            'staffs' => $staffs,
+            'achievements' => $achievements,
+            'facilities' => $facilities,
             'extracurriculars' => $extracurriculars,
             'accounts' => $accounts,
         ]);

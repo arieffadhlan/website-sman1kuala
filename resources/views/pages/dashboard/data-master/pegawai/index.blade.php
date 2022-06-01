@@ -27,41 +27,51 @@
             <x-dashboard.table-column-header table-name="pegawai" column-name="aksi" :sort-column="$sortColumn" :sort-direction="$sortDirection">Aksi</x-dashboard.table-column-header>
         </x-slot:tableColumnHeaders>
         
-        @php
-            $id = 0;
-        @endphp
-        @foreach($staffs as $staff)
+        @if ($staffs->isNotEmpty())
             @php
-                $id++;
+                $id = 0;
             @endphp
+            @foreach($staffs as $staff)
+                @php
+                    $id++;
+                @endphp
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $staff->nama_pegawai }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $staff->ket_pegawai }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex justify-center items-center gap-x-6">
+                            <a href="{{ route('pegawai.edit', $staff->id) }}" class="flex justify-center items-start text-sm font-medium text-blue-800">
+                                <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-edit text-blue-800"></i></div>
+                                <span>Ubah</span>
+                            </a>
+                            <button type="button" class="openModal{{ $id }} flex justify-center items-start text-sm font-medium text-red-500">
+                                <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-trash text-red-500"></i></div>
+                                <span>Hapus</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <x-modal :id="$id" route="{{ route('pegawai.destroy', $staff->id) }}">
+                    <x-slot:modalTitle>Hapus Data</x-slot:modalTitle>
+                    Apakah Anda yakin ingin menghapus data pegawai {{ $staff->nama_pegawai }}? Semua data terkait guru tersebut akan permanen dihapus. Aksi ini tidak bisa dibatalkan ketika data telah terhapus.
+                </x-modal>
+            @endforeach
+
+            <x-slot:pagination>
+                {{ $staffs->onEachSide(5)->links() }}
+            </x-slot:pagination>
+        @else
             <tr>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $staff->nama_pegawai }}</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $staff->ket_pegawai }}</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex justify-center items-center gap-x-6">
-                        <a href="{{ route('pegawai.edit', $staff->id) }}" class="flex justify-center items-start text-sm font-medium text-blue-800">
-                            <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-edit text-blue-800"></i></div>
-                            <span>Ubah</span>
-                        </a>
-                        <button type="button" class="openModal{{ $id }} flex justify-center items-start text-sm font-medium text-red-500">
-                            <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-trash text-red-500"></i></div>
-                            <span>Hapus</span>
-                        </button>
-                    </div>
+                <td class="px-6 py-4 whitespace-nowrap" colspan="3">
+                    <div class="flex justify-center items-start text-sm font-medium text-gray-900">Data pegawai tidak ada.</div>
                 </td>
             </tr>
-            <x-modal :id="$id" route="{{ route('pegawai.destroy', $staff->id) }}">
-                <x-slot:modalTitle>Hapus Data</x-slot:modalTitle>
-                Apakah Anda yakin ingin menghapus data pegawai {{ $staff->nama_pegawai }}? Semua data terkait guru tersebut akan permanen dihapus. Aksi ini tidak bisa dibatalkan ketika data telah terhapus.
-            </x-modal>
-        @endforeach
 
-        <x-slot:pagination>
-            {{ $staffs->onEachSide(5)->links() }}
-        </x-slot:pagination>
+            <x-slot:pagination></x-slot:pagination>
+        @endif
     </x-dashboard>
 </x-app-layout>

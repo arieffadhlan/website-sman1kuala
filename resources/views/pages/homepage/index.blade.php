@@ -16,11 +16,11 @@
                 </div>
                 <div class="flex flex-col items-center justify-center w-60">
                     <h1 class="text-3xl leading-[42px] tracking-[-0.021em] font-bold text-secondary sm:text-5xl sm:leading-[64px] sm:tracking-[-0.022em] xl:text-6xl xl:leading-[80px]">{{ $students }}</h1>
-                    <h2 class="text-base tracking-[-0.011em] font-bold text-primary sm:text-xl sm:tracking-[-0.017em]">Peserta Didik</h2>
+                    <h2 class="text-base tracking-[-0.011em] font-bold text-primary sm:text-xl sm:tracking-[-0.017em]">Siswa</h2>
                 </div>
                 <div class="flex flex-col items-center justify-center w-60">
                     <h1 class="text-3xl leading-[42px] tracking-[-0.021em] font-bold text-secondary sm:text-5xl sm:leading-[64px] sm:tracking-[-0.022em] xl:text-6xl xl:leading-[80px]">{{ $fieldsOfStudy }}</h1>
-                    <h2 class="text-base tracking-[-0.011em] font-bold text-primary sm:text-xl sm:tracking-[-0.017em]">Mata Pelajaran</h2>
+                    <h2 class="text-base tracking-[-0.011em] font-bold text-primary sm:text-xl sm:tracking-[-0.017em]">Bidang Studi</h2>
                 </div>
                 <div class="flex flex-col items-center justify-center w-60">
                     <h1 class="text-3xl leading-[42px] tracking-[-0.021em] font-bold text-secondary sm:text-5xl sm:leading-[64px] sm:tracking-[-0.022em] xl:text-6xl xl:leading-[80px]">2000</h1>

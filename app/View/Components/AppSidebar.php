@@ -26,6 +26,7 @@ class AppSidebar extends Component
         $masterDataLinks = [
             'Dashboard' => '/dashboard',
             'Kelas' => '/data-master/kelas',
+            'Bidang Studi' => '/data-master/bidang-studi',
             'Guru' => '/data-master/guru',
             'Siswa' => '/data-master/siswa',
             'Pegawai' => '/data-master/pegawai',
@@ -39,6 +40,7 @@ class AppSidebar extends Component
         $masterDataIcons = [
             'Dashboard' => 'fas fa-chart-area',
             'Kelas' => 'fas fa-school',
+            'Bidang Studi' => 'fas fa-book',
             'Guru' => 'fas fa-chalkboard-teacher',
             'Siswa' => 'fas fa-user-graduate',
             'Pegawai' => 'fas fa-user-tie',

@@ -5,7 +5,7 @@
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
         <form method="POST" action="{{ route('siswa.store') }}">
             @csrf
-            <div class="mt-5">
+            <div>
                 <x-label for="nis" :value="__('NIS')" />
                 <x-input type="number" name="nis" id="nis" class="placeholder:!font-normal placeholder:text-[#252f3f66] block mt-1 w-full" :value="old('nis')" placeholder="Masukkan NIS Siswa" autofocus />
             </div>

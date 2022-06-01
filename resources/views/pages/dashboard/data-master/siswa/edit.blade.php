@@ -6,7 +6,7 @@
         <form method="POST" action="{{ route('siswa.update', $students['0']->nis) }}">
             @csrf
             @method('put')
-            <div class="mt-5">
+            <div>
                 <x-label for="nis" :value="__('NIS')" />
                 <x-input type="number" name="nis" id="nis" class="placeholder:!font-normal placeholder:text-[#252f3f66] block mt-1 w-full" :value="old('nis', $students['0']->nis)" placeholder="Masukkan NIS Siswa" autofocus />
             </div>

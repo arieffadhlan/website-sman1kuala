@@ -5,7 +5,7 @@
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
         <form method="POST" action="{{ route('pegawai.store') }}">
             @csrf
-            <div class="mt-5">
+            <div>
                 <x-label for="nama_pegawai" :value="__('Nama Fasilitas')" />
                 <x-input type="text" name="nama_pegawai" id="nama_pegawai" class="placeholder:!font-normal placeholder:text-[#252f3f66] block mt-1 w-full" :value="old('nama_pegawai')" placeholder="Masukkan Nama Pegawai" autofocus />
             </div>

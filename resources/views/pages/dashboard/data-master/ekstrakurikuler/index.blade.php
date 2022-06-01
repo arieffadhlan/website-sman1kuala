@@ -26,35 +26,45 @@
             <x-dashboard.table-column-header table-name="ekstrakurikuler" column-name="aksi" :sort-column="$sortColumn" :sort-direction="$sortDirection">Aksi</x-dashboard.table-column-header>
         </x-slot:tableColumnHeaders>
         
-        @foreach($extracurriculars as $extracurricular)
+        @if ($extracurriculars->isNotEmpty())
+            @foreach($extracurriculars as $extracurricular)
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $extracurricular->nama_ekstrakurikuler }}</div>
+                    </td>
+                    <td class="flex justify-center px-6 py-4 whitespace-nowrap">
+                        <img style="width: 36px" src="{{ asset('storage/icons/' . $extracurricular->ikon) }}" alt="{{ $extracurricular->ikon }}">
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex justify-center items-center gap-x-6">
+                            <a href="{{ route('ekstrakurikuler.edit', $extracurricular->id) }}" class="flex justify-center items-start text-sm font-medium text-blue-800">
+                                <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-edit text-blue-800"></i></div>
+                                <span>Ubah</span>
+                            </a>
+                            <button type="button" class="openModal{{ $extracurricular->id }} flex justify-center items-start text-sm font-medium text-red-500">
+                                <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-trash text-red-500"></i></div>
+                                <span>Hapus</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <x-modal :id="$extracurricular->id" route="{{ route('ekstrakurikuler.destroy', $extracurricular->id) }}">
+                    <x-slot:modalTitle>Hapus Data</x-slot:modalTitle>
+                    Apakah Anda yakin ingin menghapus data ekstrakurikuler {{ $extracurricular->nama }}? Semua data terkait ekstrakurikuler tersebut akan permanen dihapus. Aksi ini tidak bisa dibatalkan ketika data telah terhapus.
+                </x-modal>
+            @endforeach
+
+            <x-slot:pagination>
+                {{ $extracurriculars->onEachSide(5)->links() }}
+            </x-slot:pagination>
+        @else
             <tr>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $extracurricular->nama_ekstrakurikuler }}</div>
-                </td>
-                <td class="flex justify-center px-6 py-4 whitespace-nowrap">
-                    <img style="width: 36px" src="{{ asset('storage/icons/' . $extracurricular->ikon) }}" alt="{{ $extracurricular->ikon }}">
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex justify-center items-center gap-x-6">
-                        <a href="{{ route('ekstrakurikuler.edit', $extracurricular->id) }}" class="flex justify-center items-start text-sm font-medium text-blue-800">
-                            <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-edit text-blue-800"></i></div>
-                            <span>Ubah</span>
-                        </a>
-                        <button type="button" class="openModal{{ $extracurricular->id }} flex justify-center items-start text-sm font-medium text-red-500">
-                            <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-trash text-red-500"></i></div>
-                            <span>Hapus</span>
-                        </button>
-                    </div>
+                <td class="px-6 py-4 whitespace-nowrap" colspan="3">
+                    <div class="flex justify-center items-start text-sm font-medium text-gray-900">Data ekstrakurikuler tidak ada.</div>
                 </td>
             </tr>
-            <x-modal :id="$extracurricular->id" route="{{ route('ekstrakurikuler.destroy', $extracurricular->id) }}">
-                <x-slot:modalTitle>Hapus Data</x-slot:modalTitle>
-                Apakah Anda yakin ingin menghapus data ekstrakurikuler {{ $extracurricular->nama }}? Semua data terkait ekstrakurikuler tersebut akan permanen dihapus. Aksi ini tidak bisa dibatalkan ketika data telah terhapus.
-            </x-modal>
-        @endforeach
 
-        <x-slot:pagination>
-            {{ $extracurriculars->onEachSide(5)->links() }}
-        </x-slot:pagination>
+            <x-slot:pagination></x-slot:pagination>
+        @endif
     </x-dashboard>
 </x-app-layout>

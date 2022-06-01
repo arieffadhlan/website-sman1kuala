@@ -27,39 +27,49 @@
             <x-dashboard.table-column-header table-name="kelas" column-name="aksi" :sort-column="$sortColumn" :sort-direction="$sortDirection">Aksi</x-dashboard.table-column-header>
         </x-slot:tableColumnHeaders>
         
-        @foreach($classes as $class)
+        @if ($classes->isNotEmpty())
+            @foreach($classes as $class)
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $class->nama }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        @if ($class->nama_guru == null)
+                            <div class="flex justify-center items-start text-sm text-gray-500">-</div>
+                        @else
+                            <div class="flex justify-center items-start text-sm text-gray-500">{{ $class->nama_guru }}</div>
+                        @endif
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex justify-center items-center gap-x-6">
+                            <a href="{{ route('kelas.edit', $class->id) }}" class="flex justify-center items-start text-sm font-medium text-blue-800">
+                                <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-edit text-blue-800"></i></div>
+                                <span>Ubah</span>
+                            </a>
+                            <button type="button" class="openModal{{ $class->id }} flex justify-center items-start text-sm font-medium text-red-500">
+                                <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-trash text-red-500"></i></div>
+                                <span>Hapus</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <x-modal :id="$class->id" route="{{ route('kelas.destroy', $class->id) }}">
+                    <x-slot:modalTitle>Hapus Data</x-slot:modalTitle>
+                    Apakah Anda yakin ingin menghapus data kelas {{ $class->nama }}? Semua data terkait kelas tersebut akan permanen dihapus. Aksi ini tidak bisa dibatalkan ketika data telah terhapus.
+                </x-modal>
+            @endforeach
+
+            <x-slot:pagination>
+                {{ $classes->onEachSide(5)->links() }}
+            </x-slot:pagination>
+        @else
             <tr>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $class->nama }}</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    @if ($class->nama_guru == null)
-                        <div class="flex justify-center items-start text-sm text-gray-500">-</div>
-                    @else
-                        <div class="flex justify-center items-start text-sm text-gray-500">{{ $class->nama_guru }}</div>
-                    @endif
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex justify-center items-center gap-x-6">
-                        <a href="{{ route('kelas.edit', $class->id) }}" class="flex justify-center items-start text-sm font-medium text-blue-800">
-                            <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-edit text-blue-800"></i></div>
-                            <span>Ubah</span>
-                        </a>
-                        <button type="button" class="openModal{{ $class->id }} flex justify-center items-start text-sm font-medium text-red-500">
-                            <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-trash text-red-500"></i></div>
-                            <span>Hapus</span>
-                        </button>
-                    </div>
+                <td class="px-6 py-4 whitespace-nowrap" colspan="3">
+                    <div class="flex justify-center items-start text-sm font-medium text-gray-900">Data kelas tidak ada.</div>
                 </td>
             </tr>
-            <x-modal :id="$class->id" route="{{ route('kelas.destroy', $class->id) }}">
-                <x-slot:modalTitle>Hapus Data</x-slot:modalTitle>
-                Apakah Anda yakin ingin menghapus data kelas {{ $class->nama }}? Semua data terkait kelas tersebut akan permanen dihapus. Aksi ini tidak bisa dibatalkan ketika data telah terhapus.
-            </x-modal>
-        @endforeach
 
-        <x-slot:pagination>
-            {{ $classes->onEachSide(5)->links() }}
-        </x-slot:pagination>
+            <x-slot:pagination></x-slot:pagination>
+        @endif
     </x-dashboard>
 </x-app-layout>

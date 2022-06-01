@@ -3,6 +3,7 @@
 use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\AkunController;
+use App\Http\Controllers\BidangStudiController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DirektoriController;
 use App\Http\Controllers\EkstrakurikulerController;
@@ -53,6 +54,15 @@ Route::middleware('auth')->group(function () {
         Route::delete('kelas/{id}', 'destroy')->name('kelas.destroy');
     });
 
+    Route::controller(BidangStudiController::class)->prefix('data-master/')->group(function () {
+        Route::get('bidang-studi', 'index')->name('bidang-studi');
+        Route::get('bidang-studi/create', 'create')->name('bidang-studi.create');
+        Route::post('bidang-studi', 'store')->name('bidang-studi.store');
+        Route::get('bidang-studi/{id}/edit', 'edit')->name('bidang-studi.edit');
+        Route::put('bidang-studi/{id}', 'update')->name('bidang-studi.update');
+        Route::delete('bidang-studi/{id}', 'destroy')->name('bidang-studi.destroy');
+    });
+
     Route::controller(GuruController::class)->prefix('data-master/')->group(function () {
         Route::get('guru', 'index')->name('guru');
         Route::get('guru/create', 'create')->name('guru.create');
@@ -62,6 +72,24 @@ Route::middleware('auth')->group(function () {
         Route::delete('guru/{nip}', 'destroy')->name('guru.destroy');
     });
 
+    Route::controller(SiswaController::class)->prefix('data-master/')->group(function () {
+        Route::get('siswa', 'index')->name('siswa');
+        Route::get('siswa/create', 'create')->name('siswa.create');
+        Route::post('siswa', 'store')->name('siswa.store');
+        Route::get('siswa/{nis}/edit', 'edit')->name('siswa.edit');
+        Route::put('siswa/{nis}', 'update')->name('siswa.update');
+        Route::delete('siswa/{nis}', 'destroy')->name('siswa.destroy');
+    });
+
+    Route::controller(PegawaiController::class)->prefix('data-master/')->group(function () {
+        Route::get('pegawai', 'index')->name('pegawai');
+        Route::get('pegawai/create', 'create')->name('pegawai.create');
+        Route::post('pegawai', 'store')->name('pegawai.store');
+        Route::get('pegawai/{id}/edit', 'edit')->name('pegawai.edit');
+        Route::put('pegawai/{id}', 'update')->name('pegawai.update');
+        Route::delete('pegawai/{id}', 'destroy')->name('pegawai.destroy');
+    });
+
     Route::controller(PrestasiController::class)->prefix('data-master/')->group(function () {
         Route::get('prestasi', 'index')->name('prestasi');
         Route::get('prestasi/create', 'create')->name('prestasi.create');
@@ -69,6 +97,15 @@ Route::middleware('auth')->group(function () {
         Route::get('prestasi/{nip}/edit', 'edit')->name('prestasi.edit');
         Route::put('prestasi/{nip}', 'update')->name('prestasi.update');
         Route::delete('prestasi/{nip}', 'destroy')->name('prestasi.destroy');
+    });
+
+    Route::controller(FasilitasController::class)->prefix('data-master/')->group(function () {
+        Route::get('fasilitas', 'index')->name('fasilitas');
+        Route::get('fasilitas/create', 'create')->name('fasilitas.create');
+        Route::post('fasilitas', 'store')->name('fasilitas.store');
+        Route::get('fasilitas/{id}/edit', 'edit')->name('fasilitas.edit');
+        Route::put('fasilitas/{id}', 'update')->name('fasilitas.update');
+        Route::delete('fasilitas/{id}', 'destroy')->name('fasilitas.destroy');
     });
 
     Route::controller(EkstrakurikulerController::class)->prefix('data-master/')->group(function () {
@@ -87,32 +124,5 @@ Route::middleware('auth')->group(function () {
         Route::get('akun/{id}/edit', 'edit')->name('akun.edit');
         Route::put('akun/{id}', 'update')->name('akun.update');
         Route::delete('akun/{id}', 'destroy')->name('akun.destroy');
-    });
-
-    Route::controller(SiswaController::class)->prefix('data-master/')->group(function () {
-        Route::get('siswa', 'index')->name('siswa');
-        Route::get('siswa/create', 'create')->name('siswa.create');
-        Route::post('siswa', 'store')->name('siswa.store');
-        Route::get('siswa/{nis}/edit', 'edit')->name('siswa.edit');
-        Route::put('siswa/{nis}', 'update')->name('siswa.update');
-        Route::delete('siswa/{nis}', 'destroy')->name('siswa.destroy');
-    });
-
-    Route::controller(FasilitasController::class)->prefix('data-master/')->group(function () {
-        Route::get('fasilitas', 'index')->name('fasilitas');
-        Route::get('fasilitas/create', 'create')->name('fasilitas.create');
-        Route::post('fasilitas', 'store')->name('fasilitas.store');
-        Route::get('fasilitas/{id}/edit', 'edit')->name('fasilitas.edit');
-        Route::put('fasilitas/{id}', 'update')->name('fasilitas.update');
-        Route::delete('fasilitas/{id}', 'destroy')->name('fasilitas.destroy');
-    });
-
-    Route::controller(PegawaiController::class)->prefix('data-master/')->group(function () {
-        Route::get('pegawai', 'index')->name('pegawai');
-        Route::get('pegawai/create', 'create')->name('pegawai.create');
-        Route::post('pegawai', 'store')->name('pegawai.store');
-        Route::get('pegawai/{id}/edit', 'edit')->name('pegawai.edit');
-        Route::put('pegawai/{id}', 'update')->name('pegawai.update');
-        Route::delete('pegawai/{id}', 'destroy')->name('pegawai.destroy');
     });
 });

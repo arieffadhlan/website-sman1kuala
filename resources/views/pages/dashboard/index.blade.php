@@ -15,7 +15,19 @@
 			</x-dashboard.statistic-card>
 			<x-dashboard.statistic-card :counts="$students">
 				<x-slot:icon><i class="fas fa-user-graduate"></i></x-slot:icon>
-				Peserta Didik
+				Siswa
+			</x-dashboard.statistic-card>
+			<x-dashboard.statistic-card :counts="$staffs">
+				<x-slot:icon><i class="fas fa-user-tie"></i></x-slot:icon>
+				Pegawai
+			</x-dashboard.statistic-card>
+			<x-dashboard.statistic-card :counts="$achievements">
+				<x-slot:icon><i class="fas fa-star"></i></x-slot:icon>
+				Prestasi
+			</x-dashboard.statistic-card>
+			<x-dashboard.statistic-card :counts="$facilities">
+				<x-slot:icon><i class="fas fa-building"></i></x-slot:icon>
+				Fasilitas
 			</x-dashboard.statistic-card>
 			<x-dashboard.statistic-card :counts="$extracurriculars">
 				<x-slot:icon><i class="fas fa-futbol"></i></x-slot:icon>

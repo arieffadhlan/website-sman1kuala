@@ -31,40 +31,50 @@
             @endif
         </x-slot:tableColumnHeaders>
         
-        @foreach($accounts as $account)
-            <tr>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $account->nama }}</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $account->email }}</div>
-                </td>
-                <td class="flex justify-center px-6 py-4 whitespace-nowrap">
-                    <span class="inline-flex justify-center items-start px-3 py-1 text-sm font-medium rounded-full {{ $account->role == 'Admin' ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800' }}">{{ $account->role }}</span>
-                </td>
-                @if (Auth::user()->role == 'Superadmin')
+        @if ($accounts->isNotEmpty())
+            @foreach($accounts as $account)
+                <tr>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="flex justify-center items-center gap-x-6">
-                            <a href="{{ route('akun.edit', $account->id) }}" class="flex justify-center items-start text-sm font-medium text-blue-800">
-                                <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-edit text-blue-800"></i></div>
-                                <span>Ubah</span>
-                            </a>
-                            <button type="button" class="openModal{{ $account->id }} flex justify-center items-start text-sm font-medium text-red-500">
-                                <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-trash text-red-500"></i></div>
-                                <span>Hapus</span>
-                            </button>
-                        </div>
+                        <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $account->nama }}</div>
                     </td>
-                @endif
-            </tr>
-            <x-modal :id="$account->id" route="{{ route('akun.destroy', $account->id) }}">
-                <x-slot:modalTitle>Hapus Data</x-slot:modalTitle>
-                Apakah Anda yakin ingin menghapus data akun {{ $account->nama }}? Semua data terkait akun tersebut akan permanen dihapus. Aksi ini tidak bisa dibatalkan ketika data telah terhapus.
-            </x-modal>
-        @endforeach
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $account->email }}</div>
+                    </td>
+                    <td class="flex justify-center px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex justify-center items-start px-3 py-1 text-sm font-medium rounded-full {{ $account->role == 'Admin' ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800' }}">{{ $account->role }}</span>
+                    </td>
+                    @if (Auth::user()->role == 'Superadmin')
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex justify-center items-center gap-x-6">
+                                <a href="{{ route('akun.edit', $account->id) }}" class="flex justify-center items-start text-sm font-medium text-blue-800">
+                                    <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-edit text-blue-800"></i></div>
+                                    <span>Ubah</span>
+                                </a>
+                                <button type="button" class="openModal{{ $account->id }} flex justify-center items-start text-sm font-medium text-red-500">
+                                    <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-trash text-red-500"></i></div>
+                                    <span>Hapus</span>
+                                </button>
+                            </div>
+                        </td>
+                    @endif
+                </tr>
+                <x-modal :id="$account->id" route="{{ route('akun.destroy', $account->id) }}">
+                    <x-slot:modalTitle>Hapus Data</x-slot:modalTitle>
+                    Apakah Anda yakin ingin menghapus data akun {{ $account->nama }}? Semua data terkait akun tersebut akan permanen dihapus. Aksi ini tidak bisa dibatalkan ketika data telah terhapus.
+                </x-modal>
+            @endforeach
 
-        <x-slot:pagination>
-            {{ $accounts->onEachSide(5)->links() }}
-        </x-slot:pagination>
+            <x-slot:pagination>
+                {{ $accounts->onEachSide(5)->links() }}
+            </x-slot:pagination>
+        @else
+            <tr>
+                <td class="px-6 py-4 whitespace-nowrap" colspan="3">
+                    <div class="flex justify-center items-start text-sm font-medium text-gray-900">Data akun tidak ada.</div>
+                </td>
+            </tr>
+
+            <x-slot:pagination></x-slot:pagination>
+        @endif
     </x-dashboard>
 </x-app-layout>

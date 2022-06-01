@@ -30,44 +30,54 @@
             <x-dashboard.table-column-header table-name="siswa" column-name="aksi" :sort-column="$sortColumn" :sort-direction="$sortDirection">Aksi</x-dashboard.table-column-header>
         </x-slot:tableColumnHeaders>
         
-        @foreach($students as $student)
+        @if ($students->isNotEmpty())
+            @foreach($students as $student)
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $student->nis }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $student->nama_siswa }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $student->jk_siswa }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $student->agama_siswa }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $student->nama }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex justify-center items-center gap-x-6">
+                            <a href="{{ route('siswa.edit', $student->nis) }}" class="flex justify-center items-start text-sm font-medium text-blue-800">
+                                <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-edit text-blue-800"></i></div>
+                                <span>Ubah</span>
+                            </a>
+                            <button type="button" class="openModal{{ $student->nis }} flex justify-center items-start text-sm font-medium text-red-500">
+                                <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-trash text-red-500"></i></div>
+                                <span>Hapus</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <x-modal :id="$student->nis" route="{{ route('siswa.destroy', $student->nis) }}">
+                    <x-slot:modalTitle>Hapus Data</x-slot:modalTitle>
+                    Apakah Anda yakin ingin menghapus data kelas {{ $student->nama_siswa }}? Semua data terkait kelas tersebut akan permanen dihapus. Aksi ini tidak bisa dibatalkan ketika data telah terhapus.
+                </x-modal>
+            @endforeach
+
+            <x-slot:pagination>
+                {{ $students->onEachSide(2)->links() }}
+            </x-slot:pagination>
+        @else
             <tr>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $student->nis }}</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $student->nama_siswa }}</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $student->jk_siswa }}</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $student->agama_siswa }}</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $student->nama }}</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex justify-center items-center gap-x-6">
-                        <a href="{{ route('siswa.edit', $student->nis) }}" class="flex justify-center items-start text-sm font-medium text-blue-800">
-                            <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-edit text-blue-800"></i></div>
-                            <span>Ubah</span>
-                        </a>
-                        <button type="button" class="openModal{{ $student->nis }} flex justify-center items-start text-sm font-medium text-red-500">
-                            <div class="inline-block mr-1"><i class="block text-sm fa-fw fas fa-trash text-red-500"></i></div>
-                            <span>Hapus</span>
-                        </button>
-                    </div>
+                <td class="px-6 py-4 whitespace-nowrap" colspan="3">
+                    <div class="flex justify-center items-start text-sm font-medium text-gray-900">Data siswa tidak ada.</div>
                 </td>
             </tr>
-            <x-modal :id="$student->nis" route="{{ route('siswa.destroy', $student->nis) }}">
-                <x-slot:modalTitle>Hapus Data</x-slot:modalTitle>
-                Apakah Anda yakin ingin menghapus data kelas {{ $student->nama_siswa }}? Semua data terkait kelas tersebut akan permanen dihapus. Aksi ini tidak bisa dibatalkan ketika data telah terhapus.
-            </x-modal>
-        @endforeach
 
-        <x-slot:pagination>
-            {{ $students->onEachSide(2)->links() }}
-        </x-slot:pagination>
+            <x-slot:pagination></x-slot:pagination>
+        @endif
     </x-dashboard>
 </x-app-layout>

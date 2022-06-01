@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tbl_bidang_studis', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->text('nama_bidangStudi', 225)->nullable();
+            $table->tinyInteger('id');
+            $table->string('nama_bidangStudi', 225)->nullable();
             $table->timestamps();
         });
     }

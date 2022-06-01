@@ -20,6 +20,7 @@ Route::middleware('guest')->group(function () {
         Route::view('sambutan-kepala-sekolah', 'pages.homepage.profil.sambutan-kepala-sekolah')->name('sambutan-kepala-sekolah');
         Route::view('sejarah', 'pages.homepage.profil.sejarah')->name('sejarah');
         Route::view('visi-misi', 'pages.homepage.profil.visi-misi')->name('visi-misi');
+        Route::view('struktur-organisasi', 'pages.homepage.profil.struktur-organisasi')->name('struktur-organisasi');
     });
 
     Route::prefix('akademik')->group(function () {

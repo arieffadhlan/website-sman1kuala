@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Requests\SiswaRequest;
 use App\Models\tbl_siswa;
 use App\Models\tbl_kelas;
@@ -21,19 +22,18 @@ class SiswaController extends Controller
         }
 
         if ($searchStudent) {
-            $studentQuery = $studentQuery->where(function ($query) use ($searchStudent) {
-                $query->orWhere('nis', 'like', "%$searchStudent%")
-                    ->orWhere('nama_siswa', 'like', "%$searchStudent%")
-                    ->orWhere('jk_siswa', 'like', "%$searchStudent%")
-                    ->orWhere('agama_siswa', 'like', "%$searchStudent%");
-            }); 
+            $studentQuery->orWhere('nis', 'like', "%$searchStudent%")
+                ->orWhere('nama_siswa', 'like', "%$searchStudent%")
+                ->orWhere('jk_siswa', 'like', "%$searchStudent%")
+                ->orWhere('agama_siswa', 'like', "%$searchStudent%")
+                ->orWhere('tbl_kelas.nama', 'like', "%$searchStudent%");
         }
 
         $students = $studentQuery
-        ->select('tbl_kelas.nama', 'nama_siswa', 'jk_siswa', 'agama_siswa', 'nis')
-        ->join('tbl_kelas', 'tbl_kelas.id', '=', 'tbl_siswas.id_kelas')
-        ->paginate(10);
-        
+            ->select('tbl_kelas.nama', 'nama_siswa', 'jk_siswa', 'agama_siswa', 'nis')
+            ->join('tbl_kelas', 'tbl_kelas.id', '=', 'tbl_siswas.id_kelas')
+            ->paginate(10);
+
         return view('pages.dashboard.data-master.siswa.index', compact('students', 'sortColumn', 'sortDirection', 'searchStudent'));
     }
 

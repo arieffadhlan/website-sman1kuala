@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AkunController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DirektoriController;
 use App\Http\Controllers\EkstrakurikulerController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\HomepageController;
@@ -29,6 +30,7 @@ Route::middleware('guest')->group(function () {
     });
 
     Route::view('berita', 'pages.homepage.berita')->name('berita');
+    Route::get('direktori', DirektoriController::class)->name('direktori');
 });
 
 Route::middleware('auth')->group(function () {

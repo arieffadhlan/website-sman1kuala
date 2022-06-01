@@ -28,7 +28,7 @@ class GuestNavbar extends Component
             'Profil' => '/#',
             'Akademik' => '/#',
             'Berita' => '/berita',
-            'Galeri' => '/galeri'
+            'Direktori' => '/direktori'
         ];
 
         return view('layouts.guest-navbar', compact('navLinks'));

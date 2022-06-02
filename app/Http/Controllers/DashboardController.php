@@ -23,6 +23,7 @@ class DashboardController extends Controller
         $achievements = DB::table('tbl_prestasis')->count();
         $facilities = DB::table('tbl_fasilitas')->count();
         $extracurriculars = DB::table('tbl_ekstrakurikulers')->count();
+        $newsPosts = DB::table('tbl_beritas')->count();
         $accounts = DB::table('tbl_akuns')->count();
 
         return view('pages.dashboard.index', [
@@ -34,6 +35,7 @@ class DashboardController extends Controller
             'achievements' => $achievements,
             'facilities' => $facilities,
             'extracurriculars' => $extracurriculars,
+            'newsPosts' => $newsPosts,
             'accounts' => $accounts,
         ]);
     }

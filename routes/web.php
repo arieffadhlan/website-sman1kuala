@@ -3,6 +3,7 @@
 use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\AkunController;
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\BidangStudiController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DirektoriController;
@@ -32,13 +33,12 @@ Route::middleware('guest')->group(function () {
         Route::view('tata-tertib', 'pages.homepage.akademik.tata-tertib')->name('tata-tertib');
     });
 
-    Route::view('berita', 'pages.homepage.berita')->name('berita');
+    Route::get('berita', [BeritaController::class, 'indexHomepage'])->name('berita-homepage');
     Route::get('direktori', DirektoriController::class)->name('direktori');
 });
 
 Route::middleware('auth')->group(function () {
     Route::get('dashboard', DashboardController::class)->name('dashboard');
-    Route::get('/data-master/siswa', [SiswaController::class, 'index'])->name('siswa');
 
     Route::controller(ProfileController::class)->group(function () {
         Route::get('akun-saya', 'index')->name('akun-saya');
@@ -115,6 +115,15 @@ Route::middleware('auth')->group(function () {
         Route::get('ekstrakurikuler/{nip}/edit', 'edit')->name('ekstrakurikuler.edit');
         Route::put('ekstrakurikuler/{nip}', 'update')->name('ekstrakurikuler.update');
         Route::delete('ekstrakurikuler/{nip}', 'destroy')->name('ekstrakurikuler.destroy');
+    });
+
+    Route::controller(BeritaController::class)->prefix('data-master/')->group(function () {
+        Route::get('berita', 'index')->name('berita');
+        Route::get('berita/create', 'create')->name('berita.create');
+        Route::post('berita', 'store')->name('berita.store');
+        Route::get('berita/{id}/edit', 'edit')->name('berita.edit');
+        Route::put('berita/{id}', 'update')->name('berita.update');
+        Route::delete('berita/{id}', 'destroy')->name('berita.destroy');
     });
 
     Route::controller(AkunController::class)->prefix('data-master/')->group(function () {

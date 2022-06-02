@@ -935,6 +935,9 @@ input[type=file]::file-selector-button:hover {
 .mr-1 {
   margin-right: 0.25rem;
 }
+.mb-11 {
+  margin-bottom: 2.75rem;
+}
 .mt-1 {
   margin-top: 0.25rem;
 }
@@ -947,8 +950,8 @@ input[type=file]::file-selector-button:hover {
 .mb-9 {
   margin-bottom: 2.25rem;
 }
-.mb-3 {
-  margin-bottom: 0.75rem;
+.mr-4 {
+  margin-right: 1rem;
 }
 .mt-4 {
   margin-top: 1rem;
@@ -964,6 +967,9 @@ input[type=file]::file-selector-button:hover {
 }
 .ml-0 {
   margin-left: 0px;
+}
+.mb-1 {
+  margin-bottom: 0.25rem;
 }
 .ml-1 {
   margin-left: 0.25rem;
@@ -983,20 +989,17 @@ input[type=file]::file-selector-button:hover {
 .mr-2 {
   margin-right: 0.5rem;
 }
-.mb-1 {
-  margin-bottom: 0.25rem;
-}
 .mt-2 {
   margin-top: 0.5rem;
+}
+.mb-3 {
+  margin-bottom: 0.75rem;
 }
 .mb-10 {
   margin-bottom: 2.5rem;
 }
 .mt-6 {
   margin-top: 1.5rem;
-}
-.mb-11 {
-  margin-bottom: 2.75rem;
 }
 .mb-6 {
   margin-bottom: 1.5rem;
@@ -1055,8 +1058,8 @@ input[type=file]::file-selector-button:hover {
 .h-\[20rem\] {
   height: 20rem;
 }
-.h-44 {
-  height: 11rem;
+.h-48 {
+  height: 12rem;
 }
 .h-8 {
   height: 2rem;
@@ -1434,6 +1437,10 @@ input[type=file]::file-selector-button:hover {
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
 }
+.\!rounded-t-lg {
+  border-top-left-radius: 0.5rem !important;
+  border-top-right-radius: 0.5rem !important;
+}
 .rounded-tr-lg {
   border-top-right-radius: 0.5rem;
 }
@@ -1496,6 +1503,10 @@ input[type=file]::file-selector-button:hover {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
+.border-secondary {
+  --tw-border-opacity: 1;
+  border-color: rgb(81 179 109 / var(--tw-border-opacity));
+}
 .border-dashboard {
   --tw-border-opacity: 1;
   border-color: rgb(6 78 59 / var(--tw-border-opacity));
@@ -1508,10 +1519,6 @@ input[type=file]::file-selector-button:hover {
   --tw-border-opacity: 1;
   border-color: rgb(156 163 175 / var(--tw-border-opacity));
 }
-.border-secondary {
-  --tw-border-opacity: 1;
-  border-color: rgb(81 179 109 / var(--tw-border-opacity));
-}
 .border-opacity-20 {
   --tw-border-opacity: 0.2;
 }
@@ -1523,6 +1530,10 @@ input[type=file]::file-selector-button:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(6 78 59 / var(--tw-bg-opacity));
 }
+.bg-secondary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(81 179 109 / var(--tw-bg-opacity));
+}
 .bg-gray-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
@@ -1531,9 +1542,9 @@ input[type=file]::file-selector-button:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
-.bg-secondary {
+.bg-primary {
   --tw-bg-opacity: 1;
-  background-color: rgb(81 179 109 / var(--tw-bg-opacity));
+  background-color: rgb(37 47 63 / var(--tw-bg-opacity));
 }
 .bg-\[\#DCF0E2\] {
   --tw-bg-opacity: 1;
@@ -1605,6 +1616,12 @@ input[type=file]::file-selector-button:hover {
 }
 .fill-current {
   fill: currentColor;
+}
+.p-1\.5 {
+  padding: 0.375rem;
+}
+.p-1 {
+  padding: 0.25rem;
 }
 .p-6 {
   padding: 1.5rem;
@@ -1701,6 +1718,12 @@ input[type=file]::file-selector-button:hover {
   padding-left: 2.25rem;
   padding-right: 2.25rem;
 }
+.pt-\[180px\] {
+  padding-top: 180px;
+}
+.pb-12 {
+  padding-bottom: 3rem;
+}
 .pb-4 {
   padding-bottom: 1rem;
 }
@@ -1721,12 +1744,6 @@ input[type=file]::file-selector-button:hover {
 }
 .pb-2 {
   padding-bottom: 0.5rem;
-}
-.pt-\[180px\] {
-  padding-top: 180px;
-}
-.pb-12 {
-  padding-bottom: 3rem;
 }
 .pt-12 {
   padding-top: 3rem;
@@ -1763,9 +1780,6 @@ input[type=file]::file-selector-button:hover {
 }
 .pt-8 {
   padding-top: 2rem;
-}
-.pt-\[120px\] {
-  padding-top: 120px;
 }
 .text-left {
   text-align: left;
@@ -1849,14 +1863,14 @@ input[type=file]::file-selector-button:hover {
 .tracking-\[-0\.006em\] {
   letter-spacing: -0.006em;
 }
+.tracking-\[-0\.019em\] {
+  letter-spacing: -0.019em;
+}
 .tracking-\[-0\.011em\] {
   letter-spacing: -0.011em;
 }
 .tracking-\[-0\.017em\] {
   letter-spacing: -0.017em;
-}
-.tracking-\[-0\.019em\] {
-  letter-spacing: -0.019em;
 }
 .tracking-widest {
   letter-spacing: 0.1em;
@@ -1911,6 +1925,9 @@ input[type=file]::file-selector-button:hover {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
 }
+.text-primary\/80 {
+  color: rgb(37 47 63 / 0.8);
+}
 .text-gray-800 {
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
@@ -1927,9 +1944,6 @@ input[type=file]::file-selector-button:hover {
 }
 .text-primary\/60 {
   color: rgb(37 47 63 / 0.6);
-}
-.text-primary\/80 {
-  color: rgb(37 47 63 / 0.8);
 }
 .text-green-800 {
   --tw-text-opacity: 1;
@@ -1977,9 +1991,6 @@ input[type=file]::file-selector-button:hover {
 .no-underline {
   -webkit-text-decoration-line: none;
           text-decoration-line: none;
-}
-.underline-offset-2 {
-  text-underline-offset: 2px;
 }
 .antialiased {
   -webkit-font-smoothing: antialiased;
@@ -2034,6 +2045,10 @@ input[type=file]::file-selector-button:hover {
 }
 .ring-opacity-5 {
   --tw-ring-opacity: 0.05;
+}
+.brightness-75 {
+  --tw-brightness: brightness(.75);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .transition {
   transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
@@ -2184,13 +2199,13 @@ input[type=file]::file-selector-button:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(31 96 79 / var(--tw-bg-opacity));
 }
-.hover\:bg-gray-100:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
 .hover\:bg-\[\#49a162\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(73 161 98 / var(--tw-bg-opacity));
+}
+.hover\:bg-gray-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 .hover\:bg-gray-700:hover {
   --tw-bg-opacity: 1;
@@ -2634,6 +2649,11 @@ input[type=file]::file-selector-button:hover {
     vertical-align: middle;
   }
 
+  .sm\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
   .sm\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
@@ -2642,11 +2662,6 @@ input[type=file]::file-selector-button:hover {
   .sm\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
-  }
-
-  .sm\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
   }
 
   .sm\:text-5xl {
@@ -2667,12 +2682,12 @@ input[type=file]::file-selector-button:hover {
     line-height: 64px;
   }
 
-  .sm\:tracking-\[-0\.014em\] {
-    letter-spacing: -0.014em;
-  }
-
   .sm\:tracking-\[-0\.021em\] {
     letter-spacing: -0.021em;
+  }
+
+  .sm\:tracking-\[-0\.014em\] {
+    letter-spacing: -0.014em;
   }
 
   .sm\:tracking-\[-0\.022em\] {

@@ -31,9 +31,16 @@
         <div class="pt-12 pb-10 sm:pt-[60px]">
             <h1 class="relative mb-11 text-center text-2xl tracking-[-0.019em] font-bold text-primary after:content-[' '] after:absolute after:w-[120px] after:h-1 after:left-1/2 after:bottom-[-12px] after:bg-secondary after:-translate-x-1/2 sm:text-3xl sm:tracking-[-0.021em]">Berita Terbaru</h1>
             <div class="no-scrollbar container flex flex-nowrap justify-start items-center gap-7 mx-auto px-0.5 py-5 overflow-auto scroll-px-0.5 snap-x snap-mandatory lg:flex-wrap xl:flex-nowrap lg:justify-center lg:px-0 lg:snap-none">
-                <x-homepage.news-card></x-homepage.news-card>
-                <x-homepage.news-card></x-homepage.news-card>
-                <x-homepage.news-card></x-homepage.news-card>
+                @foreach ($newsPosts as $newsPost)
+                    <x-homepage.news-card>
+                        <x-slot:thumbnail>{{ $newsPost->foto }}</x-slot:thumbnail>
+                        <x-slot:postCreated>{{ Carbon\Carbon::parse($newsPost->created_at)->format('d/m/Y') }}</x-slot:postCreated>
+                        <x-slot:title>{{ $newsPost->judul }}</x-slot:title>
+                        <x-slot:authorImage>{{ $newsPost->foto_pembuat }}</x-slot:authorImage>
+                        <x-slot:author>{{ $newsPost->nama_pembuat }}</x-slot:author>
+                        {!! $newsPost->deskripsi !!}
+                    </x-homepage.news-card>
+                @endforeach
             </div>
         </div>
     </x-container>

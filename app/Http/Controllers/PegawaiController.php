@@ -27,9 +27,8 @@ class PegawaiController extends Controller
         if ($searchStaff) {
             $staffQuery
                 ->select('id', 'nama_pegawai', 'ket_pegawai')
-                ->orWhere('id', 'like', "%$searchStaff%")
                 ->orWhere('nama_pegawai', 'like', "%$searchStaff%")
-                ->orWhere('ket_pagawai', 'like', "%$searchStaff%");
+                ->orWhere('ket_pegawai', 'like', "%$searchStaff%");
         }
 
         $staffs = $staffQuery

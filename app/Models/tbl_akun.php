@@ -14,10 +14,10 @@ class tbl_akun extends Authenticatable
         'email',
         'password',
         'foto',
-        'role',
+        'role'
     ];
 
     protected $hidden = [
-        'password',
+        'password'
     ];
 }

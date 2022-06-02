@@ -92,7 +92,7 @@ class GuruController extends Controller
      */
     public function edit($nip)
     {
-        $teacher = tbl_guru::where('NIP', $nip)->first();
+        $teacher = tbl_guru::where('nip', $nip)->first();
         $fieldsOfStudy = tbl_bidangStudi::get();
         return view('pages.dashboard.data-master.guru.edit', compact('teacher', 'fieldsOfStudy'));
     }
@@ -104,11 +104,11 @@ class GuruController extends Controller
      * @param  int  $nip
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $nip)
+    public function update(GuruRequest $request, $nip)
     {
-        $teacher = tbl_guru::where('NIP', $nip)->first();
+        $teacher = tbl_guru::where('nip', $nip)->first();
         $teacher->update([
-            'NIP' => $request->nip,
+            'nip' => $request->nip,
             'nama_guru' => $request->nama_guru,
             'id_bidangStudi' => $request->bidang_studi,
             'gol_guru' => $request->golongan_guru,

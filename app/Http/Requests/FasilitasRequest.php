@@ -25,8 +25,8 @@ class FasilitasRequest extends FormRequest
     {
         return [
             'nama_fasilitas' => ['required', 'string'],
-            'foto_fasilitas' => ['required'],
             'deskripsi' => ['required', 'string'],
+            'foto_fasilitas' => ['required']
         ];
     }
 }

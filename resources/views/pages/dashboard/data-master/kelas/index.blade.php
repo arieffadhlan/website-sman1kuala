@@ -9,7 +9,6 @@
         </div>
         <form action="{{ route('kelas', request()->query()) }}">
             <div class="flex justify-end h-10">
-                {{-- <input type="text" onkeyup="searchData()" class="placeholder:text-gray-400/60 form-control px-3 py-1.5 m-0 border border-gray-400/60 rounded-lg bg-clip-padding text-base font-normal bg-white text-primary shadow-sm transition ease-in-out focus:ring-0 focus:border focus:border-solid focus:!border-dashboard focus:bg-white focus:outline-none" id="datatableInput" placeholder="Cari..." aria-label="Search" aria-describedby="dataTableSearchButton"> --}}
                 <input type="text" name="searchClass" value="{{ $searchClass }}" class="placeholder:text-gray-400/60 form-control px-3 py-1.5 m-0 border-y border-l border-gray-400/60 rounded-l-lg bg-clip-padding text-base font-normal bg-white text-primary shadow-sm transition ease-in-out focus:ring-0 focus:!border-dashboard focus:bg-white focus:outline-none" id="datatableInput" placeholder="Cari..." aria-label="Search" aria-describedby="dataTableSearchButton">
                 <button type="submit" class="btn flex items-center px-4 py-2.5 rounded-tr-lg rounded-br-lg text-xs leading-tight uppercase font-medium transition duration-150 ease-in-out bg-dashboard text-white shadow-sm hover:bg-[#1f604f] active:bg-[#387162]" type="button" id="dataTableSearchButton">
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="w-4" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

@@ -25,7 +25,7 @@ class KelasRequest extends FormRequest
     {
         return [
             'nama' => ['required', 'string'],
-            'wali_kelas' => ['required', 'string'],
+            'wali_kelas' => ['required', 'string', 'max:18']
         ];
     }
 }

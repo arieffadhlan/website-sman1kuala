@@ -22,7 +22,8 @@ class SiswaController extends Controller
         }
 
         if ($searchStudent) {
-            $studentQuery->orWhere('nis', 'like', "%$searchStudent%")
+            $studentQuery->select('tbl_kelas.nama', 'nama_siswa', 'jk_siswa', 'agama_siswa', 'nis')
+                ->orWhere('nis', 'like', "%$searchStudent%")
                 ->orWhere('nama_siswa', 'like', "%$searchStudent%")
                 ->orWhere('jk_siswa', 'like', "%$searchStudent%")
                 ->orWhere('agama_siswa', 'like', "%$searchStudent%")

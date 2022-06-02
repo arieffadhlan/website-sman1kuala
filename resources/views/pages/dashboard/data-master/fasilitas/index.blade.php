@@ -34,7 +34,9 @@
                         <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $facility->nama_fasilitas }}</div>
                     </td>
                     <td class="flex justify-center px-6 py-4 whitespace-nowrap">
-                        <img style="width: 36px" src="{{ asset('storage/fasilitas/' . $facility->foto_fasilitas) }}" alt="{{ $facility->foto_fasilitas }}">
+                        <a href="{{ asset('storage/fasilitas/' . $facility->foto_fasilitas) }}" target="_blank">
+                            <img style="width: 50px" src="{{ asset('storage/fasilitas/' . $facility->foto_fasilitas) }}" alt="{{ $facility->foto_fasilitas }}">
+                        </a>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $facility->deskripsi }}</div>

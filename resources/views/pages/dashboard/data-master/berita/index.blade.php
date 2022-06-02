@@ -21,7 +21,7 @@
 
     <x-dashboard.datatable>
         <x-slot:tableColumnHeaders>
-            <x-dashboard.table-column-header table-name="berita" column-name="foto" :sort-column="$sortColumn" :sort-direction="$sortDirection">Nama Pembuat</x-dashboard.table-column-header>
+            <x-dashboard.table-column-header table-name="berita" column-name="foto" :sort-column="$sortColumn" :sort-direction="$sortDirection">Pembuat</x-dashboard.table-column-header>
             <x-dashboard.table-column-header table-name="berita" column-name="foto" :sort-column="$sortColumn" :sort-direction="$sortDirection">Foto</x-dashboard.table-column-header>
             <x-dashboard.table-column-header table-name="berita" column-name="judul" :sort-column="$sortColumn" :sort-direction="$sortDirection">Judul</x-dashboard.table-column-header>
             <x-dashboard.table-column-header table-name="berita" column-name="deskripsi" :sort-column="$sortColumn" :sort-direction="$sortDirection">Deskripsi</x-dashboard.table-column-header>

@@ -9,13 +9,13 @@ class tbl_guru extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'NIP';
+    protected $primaryKey = 'nip';
 
     protected $fillable = [
-        'NIP',
+        'nip',
         'nama_guru',
         'id_bidangStudi',
         'gol_guru',
-        'ket_guru',
+        'ket_guru'
     ];
 }

@@ -26,7 +26,7 @@ class BeritaController extends Controller
 
         if ($searchNewsPost) {
             $newsPostQuery
-                ->select('tbl_beritas.id', 'tbl_akuns.nama as nama_pembuat', 'foto', 'judul', 'deskripsi')
+                ->select('tbl_beritas.id', 'tbl_akuns.nama as nama_pembuat', 'tbl_beritas.foto', 'judul', 'deskripsi')
                 ->orWhere('tbl_akuns.nama', 'like', "%$searchNewsPost%")
                 ->orWhere('tbl_beritas.foto', 'like', "%$searchNewsPost%")
                 ->orWhere('judul', 'like', "%$searchNewsPost%")

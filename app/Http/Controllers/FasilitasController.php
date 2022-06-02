@@ -26,7 +26,7 @@ class FasilitasController extends Controller
 
         if ($searchFacility) {
             $facilityQuery
-                ->select('tbl_fasilitas.id', 'nama_fasilitas', 'foto_fasilitas', 'deskripsi')
+                ->select('tbl_fasilitas.id', 'nama_fasilitas', 'deskripsi', 'foto_fasilitas')
                 ->orWhere('nama_fasilitas', 'like', "%$searchFacility%")
                 ->orWhere('foto_fasilitas', 'like', "%$searchFacility%")
                 ->orWhere('deskripsi', 'like', "%$searchFacility%");
@@ -56,16 +56,16 @@ class FasilitasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FasilitasRequest $request)
     {
         $request->file('foto_fasilitas') ? $request->file('foto_fasilitas')->storeAs('public/fasilitas', $request->foto_fasilitas->getClientOriginalName()) : null;
-        
+
         tbl_fasilitas::create([
             'nama_fasilitas' => $request->nama_fasilitas,
             'deskripsi' => $request->deskripsi,
             'foto_fasilitas' => $request->foto_fasilitas == null ? null : $request->foto_fasilitas->getClientOriginalName()
         ]);
-        
+
         return redirect(route('fasilitas'))->with('success', 'Data Fasilitas telah berhasil ditambahkan!');
     }
 
@@ -108,7 +108,7 @@ class FasilitasController extends Controller
             'foto_fasilitas' => $request->foto_fasilitas,
             'deskripsi' => $request->deskripsi
         ]);
-        
+
         return redirect(route('fasilitas'))->with('success', 'Data Fasilitas telah berhasil di-update!');
     }
 

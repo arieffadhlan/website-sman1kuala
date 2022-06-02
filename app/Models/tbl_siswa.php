@@ -18,6 +18,6 @@ class tbl_siswa extends Model
         'jk_siswa',
         'agama_siswa',
         'ket_siswa',
-        'id_kelas',
+        'id_kelas'
     ];
 }

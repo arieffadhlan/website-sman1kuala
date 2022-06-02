@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PegawaiRequest;
 use App\Models\tbl_pegawai;
 use Illuminate\Http\Request;
 
@@ -55,7 +56,7 @@ class PegawaiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PegawaiRequest $request)
     {
         tbl_pegawai::create([
             'nama_pegawai' => $request->nama_pegawai,
@@ -95,7 +96,7 @@ class PegawaiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PegawaiRequest $request, $id)
     {
         $stafss = tbl_pegawai::whereId($id)->first();
         $stafss->update([

@@ -7,19 +7,19 @@
             @csrf
             @method('put')
             <div>
-                <x-label for="nis" :value="__('NIS')" />
-                <x-input type="number" name="nis" id="nis" class="placeholder:!font-normal placeholder:text-[#252f3f66] block mt-1 w-full" :value="old('nis', $students['0']->nis)" placeholder="Masukkan NIS Siswa" autofocus />
+                <x-label for="nis" value="NIS" />
+                <x-input type="number" name="nis" id="nis" class="placeholder:!font-normal placeholder:text-[#252f3f66] block mt-1 w-full" :value="old('nis', $students['0']->nis)" placeholder="Masukkan NIS siswa" autofocus />
             </div>
             <div class="mt-5">
-                <x-label for="nisn" :value="__('NISN')" />
-                <x-input type="number" name="nisn" id="nisn" class="placeholder:!font-normal placeholder:text-[#252f3f66] block mt-1 w-full" :value="old('nisn', $students['0']->nisn)" placeholder="Masukkan NISN Siswa" autofocus />
+                <x-label for="nisn" value="NISN" />
+                <x-input type="number" name="nisn" id="nisn" class="placeholder:!font-normal placeholder:text-[#252f3f66] block mt-1 w-full" :value="old('nisn', $students['0']->nisn)" placeholder="Masukkan NISN siswa" />
             </div>
             <div class="mt-5">
-                <x-label for="nama_siswa" :value="__('Nama Siswa')" />
-                <x-input type="text" name="nama_siswa" id="nama_siswa" class="placeholder:!font-normal placeholder:text-[#252f3f66] block mt-1 w-full" :value="old('nama_siswa', $students['0']->nama_siswa)" placeholder="Masukkan Nama Siswa" autofocus />
+                <x-label for="nama_siswa" value="Nama Siswa" />
+                <x-input type="text" name="nama_siswa" id="nama_siswa" class="placeholder:!font-normal placeholder:text-[#252f3f66] block mt-1 w-full" :value="old('nama_siswa', $students['0']->nama_siswa)" placeholder="Masukkan nama siswa" />
             </div>
             <div class="mt-5">
-                <x-label for="jk_siswa" :value="__('Jenis Kelamin')" />
+                <x-label for="jk_siswa" value="Jenis Kelamin" />
                 <select name="jk_siswa" id="jk_siswa" class="mt-1 w-full h-10 rounded-lg shadow-sm transition duration-[0.2s] ease-[cubic-bezier(.4,0,1,1)] border-gray-300 focus:border-secondary focus:ring focus:ring-secondary focus:ring-opacity-20">
                     <option selected disabled class="bg-gray-200 text-gray-400">Pilih Jenis Kelamin Siswa</option>
                     @if ($students->isNotEmpty())
@@ -40,7 +40,7 @@
                 </select>
             </div>
             <div class="mt-5">
-                <x-label for="agama_siswa" :value="__('Agama Siswa')" />
+                <x-label for="agama_siswa" value="Agama Siswa" />
                 <select name="agama_siswa" id="agama_siswa" class="mt-1 w-full h-10 rounded-lg shadow-sm transition duration-[0.2s] ease-[cubic-bezier(.4,0,1,1)] border-gray-300 focus:border-secondary focus:ring focus:ring-secondary focus:ring-opacity-20">
                     <option selected disabled class="bg-gray-200 text-gray-400">Pilih Agama Siswa</option>
                     @if ($students->isNotEmpty())
@@ -58,7 +58,7 @@
                 </select>
             </div>
             <div class="mt-5">
-                <x-label for="id_kelas" :value="__('Kelas')" />
+                <x-label for="id_kelas" value="Kelas" />
                 <select name="id_kelas" id="id_kelas" class="mt-1 w-full h-10 rounded-lg shadow-sm transition duration-[0.2s] ease-[cubic-bezier(.4,0,1,1)] border-gray-300 focus:border-secondary focus:ring focus:ring-secondary focus:ring-opacity-20">
                     <option selected disabled class="bg-gray-200 text-gray-400">Pilih Kelas</option>
                     @if ($classes->isNotEmpty())
@@ -72,7 +72,7 @@
                 </select>
             </div>
             <div class="mt-5 mb-7">
-                <x-label for="ket_siswa" :value="__('Keterangan Siswa')" />
+                <x-label for="ket_siswa" value="Keterangan Siswa" />
                 <select name="ket_siswa" id="ket_siswa" class="mt-1 w-full h-10 rounded-lg shadow-sm transition duration-[0.2s] ease-[cubic-bezier(.4,0,1,1)] border-gray-300 focus:border-secondary focus:ring focus:ring-secondary focus:ring-opacity-20">
                     <option selected disabled class="bg-gray-200 text-gray-400">Pilih Agama Siswa</option>
                     @if ($students->isNotEmpty())

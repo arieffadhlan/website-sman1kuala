@@ -54,7 +54,7 @@ class BidangStudiController extends Controller
     public function store(BidangStudiRequest $request)
     {
         tbl_bidangStudi::create([
-            'nama_bidangStudi' => $request->nama_bidangStudi,
+            'nama_bidangStudi' => $request->nama_bidangStudi
         ]);
 
         return redirect(route('bidang-studi'))->with('success', 'Data Bidang Studi telah berhasil ditambahkan!');
@@ -94,7 +94,7 @@ class BidangStudiController extends Controller
     {
         $fieldOfStudy = tbl_bidangStudi::whereId($id)->first();
         $fieldOfStudy->update([
-            'nama_bidangStudi' => $request->nama_bidangStudi,
+            'nama_bidangStudi' => $request->nama_bidangStudi
         ]);
 
         return redirect(route('bidang-studi'))->with('success', 'Data Bidang Studi telah berhasil di-update!');

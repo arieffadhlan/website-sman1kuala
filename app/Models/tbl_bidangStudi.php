@@ -10,6 +10,6 @@ class tbl_bidangStudi extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nama_bidangStudi',
+        'nama_bidangStudi'
     ];
 }

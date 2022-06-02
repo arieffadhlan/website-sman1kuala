@@ -30,7 +30,7 @@ class SiswaRequest extends FormRequest
             'jk_siswa' => ['required', 'string'],
             'agama_siswa' => ['required', 'string'],
             'id_kelas' => ['required', 'int'],
-            'ket_siswa' => ['required', 'string'],
+            'ket_siswa' => ['required', 'string']
         ];
     }
 }

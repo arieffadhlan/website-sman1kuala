@@ -7,19 +7,19 @@
             @csrf
             @method('put')
             <div>
-                <x-label for="nama" :value="__('Nama')" />
+                <x-label for="nama" value="Nama" />
                 <x-input type="text" name="nama" id="nama" class="placeholder:!font-normal placeholder:text-[#252f3f66] block mt-1 w-full" :value="old('nama', $account['0']->nama)" placeholder="Masukkan nama" autofocus />
             </div>
             <div class="mt-5">
-                <x-label for="email" :value="__('Email')" />
+                <x-label for="email" value="Email" />
                 <x-input type="email" name="email" id="email" class="placeholder:!font-normal placeholder:text-[#252f3f66] block mt-1 w-full" :value="old('email', $account['0']->email)" placeholder="Masukkan email" />
             </div>
             <div class="mt-5">
-                <x-label for="password" :value="__('Password')" />
+                <x-label for="password" value="Password" />
                 <x-input type="password" name="password" id="password" class="placeholder:!font-normal placeholder:text-[#252f3f66] block mt-1 w-full" :value="old('password')" placeholder="Masukkan password" />
             </div>
             <div class="mt-5 mb-7">
-                <x-label for="password_confirmation" :value="__('Konfirmasi Password')" />
+                <x-label for="password_confirmation" value="Konfirmasi Password" />
                 <x-input type="password" name="password_confirmation" id="password_confirmation" class="placeholder:!font-normal placeholder:text-[#252f3f66] block mt-1 w-full" :value="old('password_confirmation')" placeholder="Masukkan ulang password" />
             </div>
             <button type="submit" class="inline-block px-5 py-2 w-full h-11 border border-transparent rounded-lg text-center text-base tracking-[-0.011em] bg-dashboard font-semibold text-white transition duration-250 ease-in-out hover:bg-[#1f604f] active:bg-[#387162] disabled:opacity-25">

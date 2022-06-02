@@ -7,11 +7,11 @@
             @csrf
             @method('put')
             <div>
-                <x-label for="nama" :value="__('Nama Kelas')" />
+                <x-label for="nama" value="Nama" />
                 <x-input type="text" name="nama" id="nama" class="placeholder:!font-normal placeholder:text-[#252f3f66] block mt-1 w-full" :value="old('nama', $class['0']->nama)" placeholder="Masukkan nama kelas" autofocus />
             </div>
             <div class="mt-5 mb-7">
-                <x-label for="wali_kelas" :value="__('Wali Kelas')" />
+                <x-label for="wali_kelas" value="Wali Kelas" />
                 <select name="wali_kelas" id="wali_kelas" class="mt-1 w-full h-10 rounded-lg shadow-sm transition duration-[0.2s] ease-[cubic-bezier(.4,0,1,1)] border-gray-300 focus:border-secondary focus:ring focus:ring-secondary focus:ring-opacity-20">
                     <option disabled class="bg-gray-200 text-gray-400">Pilih wali kelas</option>
                     @if ($teachers->isNotEmpty())

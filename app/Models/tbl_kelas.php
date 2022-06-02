@@ -11,6 +11,6 @@ class tbl_kelas extends Model
 
     protected $fillable = [
         'nama',
-        'wali_kelas',
+        'wali_kelas'
     ];
 }

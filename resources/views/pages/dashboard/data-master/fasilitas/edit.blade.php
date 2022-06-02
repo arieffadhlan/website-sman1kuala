@@ -3,7 +3,7 @@
     <x-dashboard.form-card>
         <x-slot:cardTitle>Form Edit Data Fasilitas</x-slot:cardTitle>
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
-        <form method="POST" action="{{ route('fasilitas.update', $facilities['0']->id) }}">
+        <form method="POST" action="{{ route('fasilitas.update', $facilities['0']->id) }}" enctype="multipart/form-data">
             @csrf
             @method('put')
             <div>

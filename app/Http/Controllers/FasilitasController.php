@@ -34,7 +34,7 @@ class FasilitasController extends Controller
 
         $facilities = $facilityQuery
             ->select('tbl_fasilitas.id', 'nama_fasilitas', 'deskripsi', 'foto_fasilitas')
-            ->paginate(5);
+            ->paginate(10);
 
         return view('pages.dashboard.data-master.fasilitas.index', compact('facilities', 'sortColumn', 'sortDirection', 'searchFacility'));
     }
@@ -102,10 +102,13 @@ class FasilitasController extends Controller
     public function update(FasilitasRequest $request, $id)
     {
         $facilities = tbl_fasilitas::whereId($id)->first();
+
+        unlink(storage_path('app/public/fasilitas/' . $facilities->foto_fasilitas));
         $request->file('foto_fasilitas') ? $request->file('foto_fasilitas')->storeAs('public/fasilitas', $request->foto_fasilitas->getClientOriginalName()) : null;
+
         $facilities->update([
             'nama_fasilitas' => $request->nama_fasilitas,
-            'foto_fasilitas' => $request->foto_fasilitas,
+            'foto_fasilitas' => $request->foto_fasilitas == null ? null : $request->foto_fasilitas->getClientOriginalName(),
             'deskripsi' => $request->deskripsi
         ]);
 

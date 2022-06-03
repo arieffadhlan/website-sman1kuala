@@ -46,7 +46,7 @@
                                         @elseif ($name == "Akademik")
                                             <x-nav-link :href="route('kalender-akademik')" :active="request()->routeIs('kalender-akademik')" class="block py-2 px-10 text-primary rounded-lg hover:bg-gray-100 lg:rounded-none">Kalender</x-nav-link>
                                             <x-nav-link :href="route('tata-tertib')" :active="request()->routeIs('tata-tertib')" class="block py-2 px-10 text-primary rounded-lg hover:bg-gray-100 lg:rounded-none">Tata Tertib</x-nav-link>
-                                            <x-nav-link href="#" class="block py-2 px-10 text-primary rounded-lg hover:bg-gray-100 lg:rounded-none">Prestasi</x-nav-link>
+                                            {{-- <x-nav-link href="#" class="block py-2 px-10 text-primary rounded-lg hover:bg-gray-100 lg:rounded-none">Prestasi</x-nav-link> --}}
                                         @endif
                                     </li>
                                 </ul>

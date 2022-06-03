@@ -23,7 +23,7 @@
                     <h2 class="text-base tracking-[-0.011em] font-bold text-primary sm:text-xl sm:tracking-[-0.017em]">Bidang Studi</h2>
                 </div>
                 <div class="flex flex-col items-center justify-center w-60">
-                    <h1 class="text-3xl leading-[42px] tracking-[-0.021em] font-bold text-secondary sm:text-5xl sm:leading-[64px] sm:tracking-[-0.022em] xl:text-6xl xl:leading-[80px]">2000</h1>
+                    <h1 class="text-3xl leading-[42px] tracking-[-0.021em] font-bold text-secondary sm:text-5xl sm:leading-[64px] sm:tracking-[-0.022em] xl:text-6xl xl:leading-[80px]">{{ $achievements }}</h1>
                     <h2 class="text-base tracking-[-0.011em] font-bold text-primary sm:text-xl sm:tracking-[-0.017em]">Prestasi</h2>
                 </div>
             </div>
@@ -33,6 +33,7 @@
             <div class="no-scrollbar container flex flex-nowrap justify-start items-center gap-7 mx-auto px-0.5 py-5 overflow-auto scroll-px-0.5 snap-x snap-mandatory lg:flex-wrap xl:flex-nowrap lg:justify-center lg:px-0 lg:snap-none">
                 @foreach ($newsPosts as $newsPost)
                     <x-homepage.news-card>
+                        <x-slot:id>{{ $newsPost->id }}</x-slot:id>
                         <x-slot:thumbnail>{{ $newsPost->foto }}</x-slot:thumbnail>
                         <x-slot:postCreated>{{ Carbon\Carbon::parse($newsPost->created_at)->format('d/m/Y') }}</x-slot:postCreated>
                         <x-slot:title>{{ $newsPost->judul }}</x-slot:title>
@@ -64,7 +65,7 @@
 
     @push('guest-script')
         <script>
-            let map = L.map('map').setView([3.722333606341312, 98.68906287106076], 15);
+            let map = L.map('map').setView([3.722333606341312, 98.68906287106076], 16);
             L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
                 maxZoom: 18,
                 attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' + 'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',

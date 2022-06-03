@@ -100,7 +100,8 @@ class BeritaController extends Controller
      */
     public function show($id)
     {
-        //
+        $newsPost = tbl_berita::where('id', $id)->first();
+        return view('pages.homepage.berita-detail', compact('newsPost'));
     }
 
     /**

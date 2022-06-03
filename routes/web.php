@@ -34,6 +34,7 @@ Route::middleware('guest')->group(function () {
     });
 
     Route::get('berita', [BeritaController::class, 'indexHomepage'])->name('berita-homepage');
+    Route::get('berita/{id}', [BeritaController::class, 'show'])->name('berita.show');
     Route::get('direktori', DirektoriController::class)->name('direktori');
 });
 

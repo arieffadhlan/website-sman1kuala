@@ -17,7 +17,7 @@
                 <img class="w-8 h-8 rounded-full" src="{{ asset('storage/images/akun/' . $authorImage) }}" alt="{{ $authorImage }}">
                 <span class="text-xs font-semibold text-primary">{{ $author }}</span>
             </div>
-            <span class="text-xs font-semibold text-primary">Baca</span>
+            <a href="{{ route('berita.show', $id) }}" class="text-xs font-semibold text-primary">Baca</a>
         </div>
     </div>
 </div>

@@ -21,6 +21,7 @@ class HomepageController extends Controller
         $fieldsOfStudy = DB::table('tbl_bidang_studis')->count();
         $teachers = DB::table('tbl_gurus')->count();
         $students = DB::table('tbl_siswas')->count();
+        $achievements = DB::table('tbl_prestasis')->count();
         $extracurriculars = tbl_ekstrakurikuler::get();
 
         $newsPostQuery = tbl_berita::query();
@@ -34,6 +35,7 @@ class HomepageController extends Controller
             'fieldsOfStudy' => $fieldsOfStudy,
             'teachers' => $teachers,
             'students' => $students,
+            'achievements' => $achievements,
             'extracurriculars' => $extracurriculars,
             'newsPosts' => $newsPosts
         ]);

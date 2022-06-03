@@ -20,6 +20,7 @@
                 <div class="no-scrollbar container flex flex-nowrap justify-start items-center gap-7 mx-auto px-0.5 py-5 overflow-auto scroll-px-0.5 snap-x snap-mandatory lg:flex-wrap xl:flex-nowrap lg:justify-center lg:px-0 lg:snap-none">
                     @foreach ($newsPosts as $newsPost)
                         <x-homepage.news-card>
+                            <x-slot:id>{{ $newsPost->id }}</x-slot:id>
                             <x-slot:thumbnail>{{ $newsPost->foto }}</x-slot:thumbnail>
                             <x-slot:postCreated>{{ Carbon\Carbon::parse($newsPost->created_at)->format('d/m/Y') }}</x-slot:postCreated>
                             <x-slot:title>{{ $newsPost->judul }}</x-slot:title>

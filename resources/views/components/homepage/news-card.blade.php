@@ -7,7 +7,7 @@
     </div>
     <div class="px-6 py-4">
         <div class="flex flex-col gap-y-[6px] mb-4">
-            <h1 class="text-xl tracking-[-0.017em] font-semibold text-primary">{!! Str::limit($title, 24) !!}</span>
+            <a href="{{ route('berita.show', $id) }}" class="text-xl tracking-[-0.017em] font-semibold text-primary">{!! Str::limit($title, 24) !!}</span>
             <h2 class="text-sm tracking-[-0.006em] font-normal text-neutral">
                 {!! Str::limit($slot, 150) !!}
             </h2>

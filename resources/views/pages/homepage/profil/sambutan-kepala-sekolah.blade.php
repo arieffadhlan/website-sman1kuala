@@ -2,7 +2,7 @@
     <x-container>
         <div class="flex flex-col gap-y-9 mt-[114px]">
             <img src="{{ asset('images/kepala-sekolah.jpeg') }}" class="w-full h-[20rem] rounded-xl bg-gray-400 sm:h-[27.5rem]" alt="SMAN 9 Medan">
-            <h1 class="mb-9 pb-4 border-b border-neutral border-opacity-20 text-3xl leading-[42px] traking-[-0.021em] font-bold text-primary sm:text-4xl sm:leading-[48px]">Kata Sambutan Kepala Sekolah SMA Negeri 9 Medan</h1>
+            <h1 class="mb-9 pb-4 border-b border-neutral border-opacity-20 text-2xl leading-[34px] traking-[-0.019em] font-bold text-primary sm:text-3xl sm:leading-[42px] sm:traking-[-0.021em]">Kata Sambutan Kepala Sekolah SMA Negeri 9 Medan</h1>
         </div>
         <div class="flex flex-col gap-y-5 w-full text-justify">
             <p class="text-base tracking-[-0.011em] font-normal text-primary sm:text-lg sm:tracking-[-0.014em]">

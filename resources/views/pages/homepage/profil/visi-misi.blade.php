@@ -2,7 +2,7 @@
     <x-container>
         <div class="flex flex-col gap-y-9 mt-[114px]">
             <img src="{{ asset('images/hero-homepage.jpeg') }}" class="w-full h-[20rem] rounded-xl bg-gray-400 sm:h-[27.5rem]" alt="SMAN 9 Medan">
-            <h1 class="mb-9 pb-4 border-b border-neutral border-opacity-20 text-3xl leading-[42px] traking-[-0.021em] font-bold text-primary sm:text-4xl sm:leading-[48px]">Visi dan Misi</h1>
+            <h1 class="mb-9 pb-4 border-b border-neutral border-opacity-20 text-2xl leading-[34px] traking-[-0.019em] font-bold text-primary sm:text-3xl sm:leading-[42px] sm:traking-[-0.021em]">Visi dan Misi</h1>
         </div>
         <div class="flex flex-col items-center justify-center py-12 sm:py-[60px]">
             <h1 class="relative mb-11 text-center text-2xl tracking-[-0.019em] font-bold text-primary after:content-[' '] after:absolute after:w-[120px] after:h-1 after:left-1/2 after:bottom-[-12px] after:bg-secondary after:-translate-x-1/2 sm:text-3xl sm:tracking-[-0.021em]">Visi</h1>

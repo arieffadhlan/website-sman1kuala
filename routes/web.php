@@ -122,6 +122,7 @@ Route::middleware('auth')->group(function () {
         Route::get('berita', 'index')->name('berita');
         Route::get('berita/create', 'create')->name('berita.create');
         Route::post('berita', 'store')->name('berita.store');
+        Route::get('berita/{id}', 'show')->name('berita.show')->withoutMiddleware('auth')->middleware('guest');
         Route::get('berita/{id}/edit', 'edit')->name('berita.edit');
         Route::put('berita/{id}', 'update')->name('berita.update');
         Route::delete('berita/{id}', 'destroy')->name('berita.destroy');

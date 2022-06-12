@@ -100,8 +100,10 @@ class BeritaController extends Controller
      */
     public function show($id)
     {
-        $newsPost = tbl_berita::where('id', $id)->first();
-        return view('pages.homepage.berita-detail', compact('newsPost'));
+        $newsPost = tbl_berita::select('tbl_beritas.id', 'tbl_akuns.nama as nama_pembuat', 'tbl_akuns.foto as foto_pembuat', 'tbl_beritas.foto', 'judul', 'deskripsi', 'tbl_beritas.created_at')
+            ->join('tbl_akuns', 'tbl_akuns.id', '=', 'tbl_beritas.id_akun')
+            ->first();
+        return view('pages.dashboard.data-master.berita.show', compact('newsPost'));
     }
 
     /**

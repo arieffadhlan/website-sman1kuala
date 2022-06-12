@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\tbl_siswa;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 
 class DirektoriController extends Controller
 {
@@ -15,28 +18,36 @@ class DirektoriController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $studentQuery = tbl_siswa::query();
         $sortColumn = $request->query('sortColumn');
         $sortDirection = $request->query('sortDirection');
         $searchStudent = $request->query('searchStudent');
 
         if ($sortColumn && $sortDirection) {
-            $studentQuery->orderBy($sortColumn, $sortDirection ?: 'asc');
+            $students = $this->paginate(DB::select('SELECT * FROM direktori_siswa ORDER BY ' . $sortColumn . ' ' . $sortDirection ?: 'asc'), 10, null, ['path' => 'direktori']);
+        } else {
+            if ($searchStudent) {
+                $students =  $this->paginate(collect(
+                    DB::select(
+                        "SELECT * FROM direktori_siswa WHERE nis LIKE '%" . $searchStudent . "%'" .
+                            " OR nama_siswa LIKE '%" . $searchStudent . "%'" .
+                            " OR jk_siswa LIKE '%" . $searchStudent . "%'" .
+                            " OR agama_siswa LIKE '%" . $searchStudent . "%'" .
+                            " OR kelas LIKE '%" . $searchStudent . "%'" .
+                            " OR wali_kelas LIKE '%" . $searchStudent . "%'"
+                    )
+                ), 10, null, ['path' => 'direktori']);
+            } else {
+                $students = $this->paginate(DB::select('SELECT * FROM direktori_siswa'), 10, null, ['path' => 'direktori']);
+            }
         }
-
-        if ($searchStudent) {
-            $studentQuery->orWhere('nis', 'like', "%$searchStudent%")
-                ->orWhere('nama_siswa', 'like', "%$searchStudent%")
-                ->orWhere('jk_siswa', 'like', "%$searchStudent%")
-                ->orWhere('agama_siswa', 'like', "%$searchStudent%")
-                ->orWhere('tbl_kelas.nama', 'like', "%$searchStudent%");
-        }
-
-        $students = $studentQuery
-            ->select('tbl_kelas.nama', 'nama_siswa', 'jk_siswa', 'agama_siswa', 'nis')
-            ->join('tbl_kelas', 'tbl_kelas.id', '=', 'tbl_siswas.id_kelas')
-            ->paginate(10);
 
         return view('pages.homepage.direktori', compact('students', 'sortColumn', 'sortDirection', 'searchStudent'));
+    }
+
+    public function paginate($items, $perPage = 5, $page = null, $options = [])
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
     }
 }

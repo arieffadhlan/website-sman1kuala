@@ -22,32 +22,46 @@
                     <x-dashboard.table-column-header table-name="direktori" column-name="nama_siswa" :sort-column="$sortColumn" :sort-direction="$sortDirection">Nama</x-dashboard.table-column-header>
                     <x-dashboard.table-column-header table-name="direktori" column-name="jk_siswa" :sort-column="$sortColumn" :sort-direction="$sortDirection">Jenis Kelamin</x-dashboard.table-column-header>
                     <x-dashboard.table-column-header table-name="direktori" column-name="agama_siswa" :sort-column="$sortColumn" :sort-direction="$sortDirection">Agama</x-dashboard.table-column-header>
-                    <x-dashboard.table-column-header table-name="direktori" column-name="id_kelas" :sort-column="$sortColumn" :sort-direction="$sortDirection">kelas</x-dashboard.table-column-header>
+                    <x-dashboard.table-column-header table-name="direktori" column-name="kelas" :sort-column="$sortColumn" :sort-direction="$sortDirection">Kelas</x-dashboard.table-column-header>
+                    <x-dashboard.table-column-header table-name="direktori" column-name="wali_kelas" :sort-column="$sortColumn" :sort-direction="$sortDirection">Wali Kelas</x-dashboard.table-column-header>
                 </x-slot:tableColumnHeaders>
                 
-                @foreach($students as $student)
+                @if ($students->isNotEmpty())
+                    @foreach($students as $student)
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $student->nis }}</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $student->nama_siswa }}</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $student->jk_siswa }}</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $student->agama_siswa }}</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $student->kelas }}</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $student->wali_kelas }}</div>
+                            </td>
+                        </tr>
+                    @endforeach
+
+                    <x-slot:pagination>
+                        {{ $students->onEachSide(1)->links() }}
+                    </x-slot:pagination>
+                @else
                     <tr>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $student->nis }}</div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $student->nama_siswa }}</div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $student->jk_siswa }}</div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $student->agama_siswa }}</div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="flex justify-center items-start text-sm font-medium text-gray-900">{{ $student->nama }}</div>
+                        <td class="px-6 py-4 whitespace-nowrap" colspan="6">
+                            <div class="flex justify-center items-start text-sm font-medium text-gray-900">Data siswa tidak ditemukan.</div>
                         </td>
                     </tr>
-                @endforeach
-
-                <x-slot:pagination>
-                    {{ $students->onEachSide(2)->links() }}
-                </x-slot:pagination>
+        
+                    <x-slot:pagination></x-slot:pagination>
+                @endif
             </x-dashboard.datatable>
         </div>
     </x-container>

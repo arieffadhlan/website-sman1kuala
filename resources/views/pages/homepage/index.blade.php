@@ -34,11 +34,11 @@
                 @foreach ($newsPosts as $newsPost)
                     <x-homepage.news-card>
                         <x-slot:id>{{ $newsPost->id }}</x-slot:id>
-                        <x-slot:thumbnail>{{ $newsPost->foto }}</x-slot:thumbnail>
-                        <x-slot:postCreated>{{ Carbon\Carbon::parse($newsPost->created_at)->format('d/m/Y') }}</x-slot:postCreated>
+                        <x-slot:thumbnail>{{ $newsPost->foto_berita }}</x-slot:thumbnail>
+                        <x-slot:postCreated>{{ Carbon\Carbon::parse($newsPost->waktu_publikasi)->format('d/m/Y') }}</x-slot:postCreated>
                         <x-slot:title>{{ $newsPost->judul }}</x-slot:title>
                         <x-slot:authorImage>{{ $newsPost->foto_pembuat }}</x-slot:authorImage>
-                        <x-slot:author>{{ $newsPost->nama_pembuat }}</x-slot:author>
+                        <x-slot:author>{{ $newsPost->pembuat_berita }}</x-slot:author>
                         {!! $newsPost->deskripsi !!}
                     </x-homepage.news-card>
                 @endforeach

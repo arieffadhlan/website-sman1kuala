@@ -24,11 +24,7 @@ class HomepageController extends Controller
         $achievements = DB::table('tbl_prestasis')->count();
         $extracurriculars = tbl_ekstrakurikuler::get();
 
-        $newsPostQuery = tbl_berita::query();
-        $newsPosts = $newsPostQuery
-            ->select('tbl_beritas.id', 'tbl_akuns.nama as nama_pembuat', 'tbl_akuns.foto as foto_pembuat', 'tbl_beritas.foto', 'judul', 'deskripsi', 'tbl_beritas.created_at')
-            ->join('tbl_akuns', 'tbl_akuns.id', '=', 'tbl_beritas.id_akun')
-            ->paginate(10);
+        $newsPosts = DB::select('SELECT * FROM tampil_berita');
 
         return view('pages.homepage.index', [
             'classes' => $classes,

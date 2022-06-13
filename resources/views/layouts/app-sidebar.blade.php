@@ -63,7 +63,7 @@
                     @foreach ($masterDataIcons as $linkNameWithIcon => $icon)
                         @if ($linkName == $linkNameWithIcon)
                             <li class="items-center">
-                                <x-sidebar-link :href="$url" :active="request()->routeIs(strtolower($linkName))" :icon="$icon">
+                                <x-sidebar-link :href="$url" :active="request()->routeIs(Str::slug($linkName))" :icon="$icon">
                                     {{ $linkName }}
                                 </x-sidebar-link>
                             </li>

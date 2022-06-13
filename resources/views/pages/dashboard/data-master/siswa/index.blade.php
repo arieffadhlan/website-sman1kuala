@@ -62,7 +62,7 @@
                 </tr>
                 <x-modal :id="$student->nis" route="{{ route('siswa.destroy', $student->nis) }}">
                     <x-slot:modalTitle>Hapus Data</x-slot:modalTitle>
-                    Apakah Anda yakin ingin menghapus data kelas {{ $student->nama_siswa }}? Semua data terkait kelas tersebut akan permanen dihapus. Aksi ini tidak bisa dibatalkan ketika data telah terhapus.
+                    Apakah Anda yakin ingin menghapus data siswa {{ $student->nama_siswa }}? Semua data terkait siswa tersebut akan permanen dihapus. Aksi ini tidak bisa dibatalkan ketika data telah terhapus.
                 </x-modal>
             @endforeach
 

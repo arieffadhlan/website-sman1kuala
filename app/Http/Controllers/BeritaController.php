@@ -80,7 +80,7 @@ class BeritaController extends Controller
      */
     public function store(BeritaRequest $request)
     {
-        $request->file('foto') ? $request->file('foto')->storeAs('app/public/images/berita/', $request->foto->getClientOriginalName()) : null;
+        $request->file('foto') ? $request->file('foto')->storeAs('public/images/berita/', $request->foto->getClientOriginalName()) : null;
 
         tbl_berita::create([
             'id_akun' => auth()->user()->id,

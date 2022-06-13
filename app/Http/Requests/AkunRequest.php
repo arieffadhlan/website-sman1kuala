@@ -29,7 +29,7 @@ class AkunRequest extends FormRequest
             'email' => ['required', 'string', 'email:rfc,dns', 'max:255', 'unique:tbl_akuns'],
             'password' => ['required', 'confirmed', Password::defaults()],
             'foto' => ['image', 'max:2048'],
-            'role' => ['string']
+            'role' => ['required', 'string']
         ];
     }
 }

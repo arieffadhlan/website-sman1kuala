@@ -53,7 +53,7 @@ class EkstrakurikulerController extends Controller
      */
     public function store(EkstrakurikulerRequest $request)
     {
-        $request->file('ikon') ? $request->file('ikon')->storeAs('public/icons', $request->ikon->getClientOriginalName()) : null;
+        $request->file('ikon') ? $request->file('ikon')->storeAs('app/public/icons', $request->ikon->getClientOriginalName()) : null;
 
         tbl_ekstrakurikuler::create([
             'nama_ekstrakurikuler' => $request->nama_ekstrakurikuler,
@@ -96,7 +96,7 @@ class EkstrakurikulerController extends Controller
     public function update(EkstrakurikulerRequest $request, $id)
     {
         $extracurricular = tbl_ekstrakurikuler::whereId($id)->first();
-        $request->file('ikon') ? $request->file('ikon')->storeAs('public/icons', $request->ikon->getClientOriginalName()) : null;
+        $request->file('ikon') ? $request->file('ikon')->storeAs('app/public/icons', $request->ikon->getClientOriginalName()) : null;
         $extracurricular->update([
             'nama_ekstrakurikuler' => $request->nama_ekstrakurikuler,
             'ikon' => $request->ikon

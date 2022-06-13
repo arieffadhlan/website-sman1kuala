@@ -58,7 +58,7 @@ class FasilitasController extends Controller
      */
     public function store(FasilitasRequest $request)
     {
-        $request->file('foto_fasilitas') ? $request->file('foto_fasilitas')->storeAs('public/fasilitas', $request->foto_fasilitas->getClientOriginalName()) : null;
+        $request->file('foto_fasilitas') ? $request->file('foto_fasilitas')->storeAs('app/public/fasilitas', $request->foto_fasilitas->getClientOriginalName()) : null;
 
         tbl_fasilitas::create([
             'nama_fasilitas' => $request->nama_fasilitas,
@@ -104,7 +104,7 @@ class FasilitasController extends Controller
         $facilities = tbl_fasilitas::whereId($id)->first();
 
         unlink(storage_path('app/public/fasilitas/' . $facilities->foto_fasilitas));
-        $request->file('foto_fasilitas') ? $request->file('foto_fasilitas')->storeAs('public/fasilitas', $request->foto_fasilitas->getClientOriginalName()) : null;
+        $request->file('foto_fasilitas') ? $request->file('foto_fasilitas')->storeAs('app/public/fasilitas', $request->foto_fasilitas->getClientOriginalName()) : null;
 
         $facilities->update([
             'nama_fasilitas' => $request->nama_fasilitas,

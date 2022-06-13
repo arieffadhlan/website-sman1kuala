@@ -60,7 +60,8 @@ class AkunController extends Controller
         tbl_akun::create([
             'nama' => $request->nama,
             'email' => $request->email,
-            'password' => bcrypt($request->password)
+            'password' => bcrypt($request->password),
+            'role' => $request->role
         ]);
 
         return redirect(route('akun'))->with('success', 'Data Akun telah berhasil ditambahkan!');
@@ -102,7 +103,8 @@ class AkunController extends Controller
         $account->update([
             'nama' => $request->nama,
             'email' => $request->email,
-            'password' => bcrypt($request->password)
+            'password' => bcrypt($request->password),
+            'role' => $request->role
         ]);
 
         return redirect(route('akun'))->with('success', 'Data Akun telah berhasil di-update!');

@@ -80,7 +80,7 @@ class BeritaController extends Controller
      */
     public function store(BeritaRequest $request)
     {
-        $request->file('foto') ? $request->file('foto')->storeAs('public/images/berita/', $request->foto->getClientOriginalName()) : null;
+        $request->file('foto') ? $request->file('foto')->storeAs('app/public/images/berita/', $request->foto->getClientOriginalName()) : null;
 
         tbl_berita::create([
             'id_akun' => auth()->user()->id,
@@ -129,7 +129,7 @@ class BeritaController extends Controller
     {
         $newsPost = tbl_berita::where('id', $id)->first();
 
-        unlink(storage_path('public/images/berita/' . $newsPost->foto));
+        unlink(storage_path('app/public/images/berita/' . $newsPost->foto));
         $request->file('foto') ? $request->file('foto')->storeAs('public/images/berita', $request->foto->getClientOriginalName()) : null;
 
         $newsPost->update([

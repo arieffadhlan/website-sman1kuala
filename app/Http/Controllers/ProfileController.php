@@ -29,7 +29,10 @@ class ProfileController extends Controller
 
         if ($request->file('foto') != null) {
             if (isset($currentUserPhoto)) {
-                unlink(storage_path('app/public/images/akun/' . $currentUserPhoto));
+                if ($currentUserPhoto != 'user.png') {
+                    unlink(storage_path('app/public/images/akun/' . $currentUserPhoto));
+                }
+
                 $request->file('foto')->storeAs('public/images/akun/', $request->foto->getClientOriginalName());
                 $user->whereNama($currentUserName)->update([
                     'foto' => $request->foto->getClientOriginalName()

@@ -24,10 +24,10 @@ class GuruRequest extends FormRequest
     public function rules()
     {
         return [
-            'nip' => ['required', 'integer', 'max:18'],
+            'nip' => ['required', 'integer'],
             'nama_guru' => ['required', 'string'],
             'bidang_studi' => ['required', 'integer'],
-            'golongan_guru' => ['required', 'string', 'max:5'],
+            'golongan_guru' => ['required', 'string'],
             'keterangan_guru' => ['required', 'string']
         ];
     }
